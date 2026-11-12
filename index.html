@@ -19,7 +19,7 @@
   .slide::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: linear-gradient(var(--ochre), var(--orange) 50%, var(--red)); }
   .slide.active { display: flex; }
   .kicker { font-size: 14px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--orange); font-weight: 600; }
-  h1 { font-weight: 500; font-size: 38px; color: var(--title); line-height: 1.1; margin-top: 2px; }
+  h1 { font-weight: 500; font-size: 38px; color: var(--title); line-height: 1.1; margin: 2px 0 18px; }
   h2 { font-weight: 400; font-style: italic; font-size: 20px; color: var(--grey); margin: 3px 0 16px; }
   .body { flex: 1; min-height: 0; display: grid; gap: 18px 40px; }
   .col { display: flex; flex-direction: column; min-height: 0; }
@@ -140,6 +140,75 @@
   .cover .who { font-size: 22px; color: var(--ink); }
   .cover .who span { color: var(--grey); }
   .cover .date { font-size: 17px; font-style: italic; color: var(--grey); margin-top: 8px; }
+  .synth { display: grid; grid-template-columns: 280px 1fr 170px; gap: 4px 6px; font-size: 14.5px; }
+  .synth .hd { background: var(--ink); color: #FFFDF8; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; font-size: 14px; text-align: center; padding: 8px 4px; }
+  .synth .r { display: contents; }
+  .synth .r > div { padding: 5px 12px; display: flex; align-items: center; min-height: 36px; }
+  .synth .rk { color: #fff; font-weight: 700; font-size: 15.5px; border-radius: 2px; }
+  .synth .av { background: #fff; border-bottom: 1px solid #F1E8D8; line-height: 1.2; }
+  .synth .cv { background: #fff; border-bottom: 1px solid #F1E8D8; justify-content: center; font-size: 14.5px; color: var(--grey); }
+  .synth .cv.up { color: var(--red); font-weight: 600; }
+  .synth .cv.div { color: #B5651D; font-weight: 600; }
+  .synth .r:hover > div, .synth .r.on > div { filter: brightness(.97); }
+  .synth .r:hover .av, .synth .r.on .av, .synth .r:hover .cv, .synth .r.on .cv { background: var(--cream); }
+  .synth .r.hot::after { display: none; }
+  .lv1 { background: #8E2416; } .lv2 { background: var(--red); } .lv3 { background: var(--orange); } .lv4 { background: var(--ochre); }
+  .slegend { display: flex; gap: 22px; align-items: center; font-size: 15px; margin-top: 10px; }
+  .slegend i { display: inline-block; width: 16px; height: 16px; margin-right: 6px; vertical-align: -3px; }
+  .slegend .src { margin-left: auto; font-style: italic; color: var(--grey); font-size: 13px; }
+  .sy { flex: 1; min-height: 0; display: grid; grid-template-columns: 330px 1fr; gap: 0 30px; }
+  .sylist { display: flex; flex-direction: column; gap: 3px; }
+  .sylist h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 5px 0 1px; }
+  .sylist h4.c1 { color: #8E2416; } .sylist h4.c2 { color: var(--red); } .sylist h4.c3 { color: var(--orange); }
+  .syi { display: flex; align-items: center; gap: 9px; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 16px; border-left: 4px solid transparent; transition: background .12s; }
+  .syi:hover { background: var(--cream); }
+  .syi.sel { background: #FBEDE3; font-weight: 600; }
+  .syi.c1 { border-left-color: #8E2416; } .syi.c2 { border-left-color: var(--red); } .syi.c3 { border-left-color: var(--orange); }
+  .syi .m { margin-left: auto; font-size: 13px; width: 18px; text-align: center; }
+  .m.ok { color: #6B8E23; } .m.pes { color: var(--red); } .m.div { color: #B5651D; }
+  .sykey { margin-top: 8px; font-size: 12.5px; color: var(--grey); line-height: 1.5; border-top: 1px solid var(--beige); padding-top: 6px; }
+  .sypanel { display: flex; flex-direction: column; background: #fff; border: 1.5px solid var(--beige); border-radius: 10px; padding: 18px 22px; min-height: 0; }
+  .sypanel .lvl { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .sypanel h3 { font-size: 30px; font-weight: 500; color: var(--title); margin: 2px 0 12px; line-height: 1.1; }
+  .ag { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; flex: 1; }
+  .ag > div { background: var(--cream); border-radius: 8px; padding: 14px 16px; font-size: 18px; line-height: 1.38; border-top: 4px solid var(--ochre); }
+  .ag > div:nth-child(2) { border-top-color: var(--orange); } .ag > div:nth-child(3) { border-top-color: var(--red); }
+  .ag b.n { display: block; font-size: 19px; color: var(--title); margin-bottom: 6px; }
+  .verdict { margin-top: 14px; border-radius: 8px; padding: 11px 16px; font-size: 17px; line-height: 1.35; }
+  .verdict b { display: block; font-size: 15px; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 2px; }
+  .verdict.ok { background: #EEF3E2; } .verdict.ok b { color: #55701B; }
+  .verdict.pes { background: #FBEDE3; } .verdict.pes b { color: var(--red); }
+  .verdict.div { background: #FCEFD2; } .verdict.div b { color: #A0561A; }
+  .pyr { display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1; justify-content: center; }
+  .pyr > div { height: 62px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 19px; clip-path: polygon(7% 0, 93% 0, 100% 100%, 0 100%); cursor: pointer; transition: filter .15s; }
+  .pyr > div:hover, .pyr > div.on { filter: brightness(1.1); }
+  .pyr > div::after { display: none; }
+  .pyr .p1 { width: 36%; background: var(--red); clip-path: polygon(22% 0, 78% 0, 100% 100%, 0 100%); }
+  .pyr .p2 { width: 66%; background: var(--orange); }
+  .pyr .p3 { width: 96%; background: var(--ochre); color: var(--ink); }
+  .dark { background: #6E2C1E; color: #FFFDF8; border-radius: 8px; padding: 12px 30px 12px 18px; display: flex; gap: 26px; align-items: center; margin-top: 12px; }
+  .dark.hot:hover, .dark.hot.on { background: #5B2418; }
+  .dark.hot::after { background: #fff; }
+  .dark small { display: block; font-size: 12.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--ochre); font-weight: 700; }
+  .dark b { font-size: 22px; font-weight: 600; }
+  .dark .y { color: var(--ochre); font-weight: 700; }
+  .stress { background: var(--cream); border-radius: 10px; padding: 12px 16px; display: flex; flex-direction: column; min-height: 0; }
+  .stress .lab { align-self: flex-start; color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 12px; border-radius: 4px; }
+  .stress h4 { font-size: 20px; color: var(--title); margin: 8px 0 6px; font-weight: 600; }
+  .bignum { font-size: 60px; font-weight: 600; color: var(--red); line-height: 1; }
+  .minicard { background: #fff; border-radius: 8px; padding: 14px 22px 14px 14px; font-size: 18px; }
+  .minicard small { display: block; font-size: 12.5px; letter-spacing: 1px; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+  .qh { font-size: 13px; font-style: italic; color: var(--title); margin: 2px 0 0; }
+  .pct { display: flex; align-items: center; gap: 14px; padding: 6px 22px 6px 8px; }
+  .pct b { font-size: 38px; font-weight: 600; color: var(--red); width: 92px; flex: none; }
+  .pct span { font-size: 16.5px; line-height: 1.2; }
+  .ccard { border-radius: 8px; padding: 10px 26px 10px 14px; background: #fff; border: 1.5px solid var(--beige); }
+  .ccard b { display: block; font-size: 18px; color: var(--title); }
+  .ccard span { font-size: 15.5px; color: var(--ink); }
+  .ccard.inv { background: #6E2C1E; border-color: #6E2C1E; } .ccard.inv b { color: var(--ochre); } .ccard.inv span { color: #FFFDF8; }
+  .ccard.inv.hot:hover, .ccard.inv.hot.on { background: #5B2418; }
+  .blist { display: flex; flex-direction: column; gap: 8px; }
+  .blist .chip { font-size: 18px; padding: 9px 22px 9px 12px; }
   .nav { opacity: .35; transition: opacity .2s; position: fixed; bottom: 14px; right: 18px; display: flex; gap: 8px; align-items: center; color: #ddd; font: 14px system-ui, sans-serif; z-index: 50; }
   .nav:hover { opacity: 1; }
   .nav button { width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(255,255,255,.85); font-size: 18px; cursor: pointer; }
@@ -160,9 +229,8 @@
 </section>
 <!-- ============ SLIDE INTRO ============ -->
 <section class="slide" id="intro">
-  <div class="kicker">Introduction — Analyse risque pays</div>
+  <div class="kicker">Introduction · Analyse risque pays</div>
   <h1>L'Égypte, au carrefour de toutes les puissances</h1>
-  <h2>Faut-il s'inquiéter ? Quels risques, quels points de rupture ?</h2>
   <div class="body" style="grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); gap: 10px 36px;">
     <div class="col">
       <div class="ph">Quelques repères</div>
@@ -198,9 +266,8 @@
 </section>
 <!-- ============ SLIDE I-1 : GÉOGRAPHIE ============ -->
 <section class="slide" id="g1">
-  <div class="kicker">I · Risques géopolitiques et sécuritaires — Position stratégique</div>
+  <div class="kicker">I · Risques géopolitiques et sécuritaires · Position stratégique</div>
   <h1>La géographie, premier atout et première vulnérabilité</h1>
-  <h2>Une rente stratégique… exposée aux chocs régionaux</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); gap: 14px 40px;">
     <div class="col">
       <div class="ph">Suez : le Covid a moins coûté que la mer Rouge (recettes, Md$)</div>
@@ -228,9 +295,8 @@
 
 <!-- ============ SLIDE I-2 : QUATRE FRONTS ============ -->
 <section class="slide" id="g2">
-  <div class="kicker">I · Risques géopolitiques et sécuritaires — Tensions régionales</div>
+  <div class="kicker">I · Risques géopolitiques et sécuritaires · Tensions régionales</div>
   <h1>Quatre fronts que l'Égypte ne contrôle pas</h1>
-  <h2>Un risque géopolitique élevé, mais assuré</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 14px 36px;">
     <div class="fronts">
       <div class="front worst hot" data-k="f_red"><div class="fh">Mer Rouge · Iran<small>le plus grave</small></div><div class="fb">Ormuz fermé, Houthis sur le Bab el-Mandeb</div><div class="fi">1<sup style="font-size:16px">re</sup> attaque sur le sol égyptien</div></div>
@@ -254,9 +320,8 @@
 
 <!-- ============ SLIDE 1 ============ -->
 <section class="slide" id="s1">
-  <div class="kicker">II · Risques économiques et financiers — Croissance et structure du PIB</div>
+  <div class="kicker">II · Risques économiques et financiers · Croissance et structure du PIB</div>
   <h1>Un PIB porté par les ménages</h1>
-  <h2>Une économie diversifiée mais fragile : on consomme plus, on investit moins</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.35fr) minmax(0,.75fr) minmax(0,1fr); grid-template-rows: 1fr auto; gap: 16px 30px;">
     <div class="col">
       <div class="ph">Ménages et investissement (% du PIB)</div>
@@ -283,9 +348,8 @@
 
 <!-- ============ SLIDE 2 ============ -->
 <section class="slide" id="s2">
-  <div class="kicker">II · Risques économiques et financiers — Commerce extérieur</div>
+  <div class="kicker">II · Risques économiques et financiers · Commerce extérieur</div>
   <h1>Un déficit chronique, comblé par des devises fragiles</h1>
-  <h2>Une dépendance structurelle aux devises</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); grid-template-rows: 1fr auto;">
     <div class="col">
       <div class="ph">Solde commercial et solde courant (% du PIB)</div>
@@ -306,9 +370,8 @@
 
 <!-- ============ SLIDE 3 ============ -->
 <section class="slide" id="s3">
-  <div class="kicker">II · Risques économiques et financiers — Monnaie et inflation</div>
+  <div class="kicker">II · Risques économiques et financiers · Monnaie et inflation</div>
   <h1>Une livre divisée par cinq depuis 2016</h1>
-  <h2>Le manque de devises se paie en inflation… et en dépendance aux sauveteurs</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);">
     <div class="col">
       <div class="ph">Livres pour 1 $ (barres) et inflation (%, courbe)</div>
@@ -338,9 +401,8 @@
 
 <!-- ============ SLIDE 4 : DETTE ============ -->
 <section class="slide" id="s4">
-  <div class="kicker">III · Risque souverain — Endettement</div>
+  <div class="kicker">III · Risque souverain · Endettement</div>
   <h1>Une dette élevée et opaque, financée à l'extérieur</h1>
-  <h2>Une asymétrie d'information qui constitue un risque majeur pour les créanciers</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.55fr) minmax(0,1fr); grid-template-rows: 1fr auto; gap: 14px 40px;">
     <div class="col">
       <div class="ph">PIB nominal et dette publique (Md$) · dette / PIB (%)</div>
@@ -363,7 +425,7 @@
         <tr><td>Ca</td><td>CC / C</td><td>CC / C</td></tr>
         <tr><td>C</td><td>D</td><td>D</td></tr>
       </table>
-      <div class="ratenote hot bare" data-k="r_scale" style="align-self:flex-start">— — au-dessus : catégorie « investissement » ; en dessous : spéculative</div>
+      <div class="ratenote hot bare" data-k="r_scale" style="align-self:flex-start">Pointillés : au-dessus, catégorie « investissement » ; en dessous, spéculative</div>
     </div>
     <div class="crow" style="grid-column: span 2; grid-template-columns: repeat(5, 1fr);">
       <div class="chip hot" data-k="d_ext"><b>Dette extérieure ×4</b> depuis 2014</div>
@@ -378,9 +440,8 @@
 
 <!-- ============ SLIDE 5 : SERVICE DE LA DETTE ============ -->
 <section class="slide" id="s5">
-  <div class="kicker">III · Risque souverain — Solvabilité</div>
+  <div class="kicker">III · Risque souverain · Solvabilité</div>
   <h1>Un service de la dette qui absorbe plus de 60 % des revenus</h1>
-  <h2>Charges d'intérêts au plus haut et remboursements en devises en hausse</h2>
   <div class="body" style="grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px 40px;">
     <div class="col"><div class="ph">Service de la dette extérieure (Md$) · encours (Md$, axe droit)</div><div class="chart"><canvas id="c_xds"></canvas></div></div>
     <div class="col"><div class="ph">Intérêts / recettes publiques de l'Égypte</div><div class="chart"><canvas id="c_ir"></canvas></div></div>
@@ -392,9 +453,8 @@
 
 <!-- ============ SLIDE 6 : LIQUIDITÉ ============ -->
 <section class="slide" id="s6">
-  <div class="kicker">III · Risque souverain — Liquidité</div>
+  <div class="kicker">III · Risque souverain · Liquidité</div>
   <h1>Analyse de la liquidité</h1>
-  <h2>Des ratios au-dessus des seuils d'alerte, une couverture soutenue par l'or</h2>
   <div class="body" style="grid-template-columns: repeat(3, minmax(0,1fr)); grid-template-rows: 1fr auto; gap: 14px 34px;">
     <div class="col"><div class="ph">Dette à court terme / réserves</div><div class="chart"><canvas id="c_std"></canvas></div></div>
     <div class="col"><div class="ph">Réserves / importations (mois)</div><div class="chart"><canvas id="c_cov"></canvas></div></div>
@@ -409,9 +469,128 @@
   <div class="foot"><span>Sources : Moody's (avr. 2026) ; S&amp;P (oct. 2026) ; Banque centrale d'Égypte · exercices clos fin juin ; LTM = 12 mois glissants</span><span>6</span></div>
 </section>
 
+<!-- ============ IV-1 : JEUNESSE ============ -->
+<section class="slide" id="n1">
+  <div class="kicker">IV · Risque social · Démographie, emploi et classes</div>
+  <h1 style="font-size:34px">Une jeunesse sans débouchés, dans une société structurée par la proximité à l'État</h1>
+  <div class="body" style="grid-template-columns: minmax(0,1fr) minmax(0,1.25fr); grid-template-rows: auto 1fr; gap: 14px 36px;">
+    <div class="tiles" style="grid-column: span 2; grid-template-columns: repeat(4, 1fr);">
+      <div class="tile hot red" data-k="n_6"><b>6 %</b><span>de chômage officiel en 2025</span></div>
+      <div class="tile hot" data-k="n_60"><b>60 %</b><span>de la population a moins de 30 ans</span></div>
+      <div class="tile hot ochre" data-k="n_300"><b>&lt; 300 $</b><span>de salaire moyen mensuel</span></div>
+      <div class="tile hot red" data-k="n_emig"><b>13 → 22 %</b><span>veulent quitter le pays (2022 → 2026)</span></div>
+    </div>
+    <div class="col">
+      <div class="ph">Entrants sur le marché du travail vs postes créés, par an</div>
+      <div class="chart"><canvas id="c_jobs"></canvas></div>
+    </div>
+    <div class="col">
+      <div class="ph">Trois catégories sociales, définies par leur proximité à l'État</div>
+      <div class="pyr">
+        <div class="p1 hot" data-k="n_elite">Élite</div>
+        <div class="p2 hot" data-k="n_mid">Classe moyenne</div>
+        <div class="p3 hot" data-k="n_pop">Classes populaires</div>
+      </div>
+      <div class="dark hot" data-k="n_gini" style="margin-top:8px"><b class="y">Gini ≈ 50 : fortes inégalités</b><span>Sentiment de stagnation</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Sources : Arab Barometer, vague IX, Égypte (2025) pour l'émigration</span><span>0</span></div>
+</section>
+
+<!-- ============ IV-2 : POUVOIR D'ACHAT ============ -->
+<section class="slide" id="n2">
+  <div class="kicker">IV · Risque social · Tensions économiques</div>
+  <h1 style="font-size:34px">Le pouvoir d'achat est le premier stress, le logement le second : le contrat social en péril</h1>
+  <div class="body" style="grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); grid-template-rows: 1fr auto; gap: 12px 24px;">
+    <div class="stress">
+      <span class="lab" style="background:var(--red)">Stress n°1 · Pouvoir d'achat</span>
+      <h4 class="hot bare" data-k="n_food" style="align-self:flex-start">Nourriture : de ⅓ à 45 % des dépenses des ménages</h4>
+      <div style="display:grid;grid-template-columns: 170px 1fr; gap: 16px; flex:1; min-height:0">
+        <div class="hot" data-k="n_bread" style="padding:6px 20px 6px 6px"><div class="bignum">×4</div><div style="font-size:17px;font-weight:600;margin-top:4px">prix du pain subventionné</div><div style="font-size:15px;color:var(--grey);margin-top:4px">0,05 → 0,20 EGP</div></div>
+        <div class="col">
+          <div class="qh">“Most serious economic issue”</div>
+          <div class="chart" style="flex:1.4"><canvas id="c_issue"></canvas></div>
+          <div class="qh">“Limited food consumption by money”</div>
+          <div class="chart" style="flex:.8"><canvas id="c_limit"></canvas></div>
+        </div>
+      </div>
+    </div>
+    <div class="stress">
+      <span class="lab" style="background:var(--orange)">Stress n°2 · Fracture spatiale</span>
+      <h4>Réforme de l'immobilier et surpeuplement des métropoles</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;align-content:space-evenly">
+        <div class="hot" data-k="n_rent" style="padding:6px 20px 6px 6px"><div class="bignum">2025</div><div style="font-size:16px;margin-top:4px">fin du plafonnement des loyers</div></div>
+        <div class="hot" data-k="n_ref" style="padding:6px 20px 6px 6px"><div class="bignum">1 M</div><div style="font-size:16px;margin-top:4px">de réfugiés, nombreux au Caire</div></div>
+        <div class="minicard hot" data-k="n_new"><small>Nouvelles villes</small>Faible taux d'occupation</div>
+        <div class="minicard hot" data-k="n_ash"><small>Quartiers ashwawyat</small>Surpeuplés, mais abandonnés</div>
+      </div>
+    </div>
+    <div class="dark hot" data-k="n_contract" style="grid-column: span 2; margin-top:0"><div><small>Démantèlement du contrat social nassérien</small><b>L'État se retire de ce qu'il garantissait</b></div><div style="margin-left:auto;text-align:right"><span class="y">Politiques de masse en échec</span></div></div>
+  </div>
+  <div class="foot"><span>Source : Arab Barometer, vague IX, Égypte (2025) pour le graphique</span><span>0</span></div>
+</section>
+
+<!-- ============ IV-3 : RÉGIME ============ -->
+<section class="slide" id="n3">
+  <div class="kicker">V · Risque politique · Régime, contrat social et risque de révolution</div>
+  <h1 style="font-size:34px">L'État renforce sa capacité de coercition à mesure qu'il perd celle d'acheter la paix sociale</h1>
+  <div class="body" style="grid-template-columns: minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr); grid-template-rows: 1fr auto; gap: 12px 26px;">
+    <div class="col">
+      <div class="ph">Un régime autoritaire…</div>
+      <div class="blist">
+        <div class="chip hot" data-k="n_rep" style="border-left-color:var(--red)">Répression des médias et des syndicats</div>
+        <div class="chip hot" data-k="n_rel" style="border-left-color:var(--red)">Organisations religieuses encadrées</div>
+        <div class="chip hot" data-k="n_cap" style="border-left-color:var(--red)">Nouvelle capitale « forteresse »</div>
+      </div>
+      <div class="ph" style="margin-top:14px">… qui tient encore son rôle</div>
+      <div class="blist">
+        <div class="chip hot" data-k="n_water">Eau et électricité assurées</div>
+        <div class="chip hot" data-k="n_aid">Distributeur des aides</div>
+        <div class="chip hot" data-k="n_sec">Sécurité intérieure et régionale</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="ph">Quel point de rupture pour un retour à la rue de la population ?</div>
+      <div class="chart"><canvas id="c_rupt"></canvas></div>
+      <div class="hot bare" data-k="n_gaza" style="align-self:flex-start;font-size:15.5px;font-style:italic;color:var(--title)">Gaza n'a pas suffi : 94 % se disent solidaires de la cause</div>
+    </div>
+    <div class="col">
+      <div class="ph hot bare" data-k="n_deep" style="align-self:stretch">Une révolution, pour quels objectifs ?</div>
+      <div class="qh" style="margin-bottom:4px">Héritage des révolutions passées</div>
+      <div class="pct hot" data-k="n_76"><b>76 %</b><span>désintéressés de la politique</span></div>
+      <div class="pct hot" data-k="n_70"><b>70 %</b><span>jugent le type de régime secondaire</span></div>
+      <div class="pct hot" data-k="n_65"><b>65 %</b><span>veulent séparer religion et vie socio-économique</span></div>
+    </div>
+    <div style="grid-column: span 3; display:grid; grid-template-columns: repeat(3,1fr); gap: 14px;">
+      <div class="ccard hot" data-k="n_palace"><b>Révolution de palais</b><span>Classique en Égypte</span></div>
+      <div class="ccard hot" data-k="n_popul"><b>Révolution populaire</b><span>Très faible modification de l'ordre économique</span></div>
+      <div class="ccard inv hot" data-k="n_inv"><b>Lecture investisseur</b><span>Régime dur à déloger</span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Source : Arab Barometer, vague IX, Égypte (2025)</span><span>0</span></div>
+</section>
+
+<!-- ============ SLIDE SYNTHÈSE ============ -->
+<section class="slide" id="synth">
+  <div class="kicker">Conclusion · Synthèse des risques</div>
+  <h1>Synthèse des risques</h1>
+  <div class="sy">
+    <div class="sylist"><h4 class="c1">Risque critique</h4><div class="syi c1" data-r="int">Charge d'intérêts (solvabilité)<span class="m ok">✓</span></div><div class="syi c1" data-r="ref">Refinancement de la dette (liquidité)<span class="m ok">✓</span></div><h4 class="c2">Risque élevé</h4><div class="syi c2" data-r="geo">Conflits régionaux et mer Rouge<span class="m ok">✓</span></div><div class="syi c2" data-r="dev">Dépendance aux devises<span class="m pes">▲</span></div><div class="syi c2" data-r="conf">Confiance des marchés<span class="m pes">▲</span></div><div class="syi c2" data-r="ext">L'après-FMI (décembre 2026)<span class="m pes">▲</span></div><div class="syi c2" data-r="soc">Tensions sociales<span class="m ok">✓</span></div><h4 class="c3">Risque modéré</h4><div class="syi c3" data-r="pow">Concentration du pouvoir<span class="m ok">✓</span></div><div class="syi c3" data-r="inf">Inflation et taux de change<span class="m ok">✓</span></div><div class="syi c3" data-r="gro">Croissance tirée par la consommation<span class="m pes">▲</span></div><div class="syi c3" data-r="env">Eau, Nil et climat<span class="m div">◆</span></div>
+      <div class="sykey"><span class="m ok">✓</span> Les agences partagent notre analyse<br><span class="m pes">▲</span> Notre analyse est plus pessimiste que celle des agences<br><span class="m div">◆</span> Les agences ne sont pas d'accord entre elles</div>
+    </div>
+    <div class="sypanel">
+      <div class="lvl" id="sy_lvl"></div>
+      <h3 id="sy_t"></h3>
+      <div class="ag"><div><b class="n">S&amp;P</b><span id="sy_sp"></span></div><div><b class="n">Moody's</b><span id="sy_mo"></span></div><div><b class="n">Fitch</b><span id="sy_fi"></span></div></div>
+      <div class="verdict" id="sy_v"><b></b><span></span></div>
+    </div>
+  </div>
+  <div class="foot"><span>Sources : S&amp;P (9 oct. 2026) ; Fitch (8 oct. 2026) ; Moody's (avr. 2026 et relèvement à B3 du 16 oct. 2026) · S&amp;P note de 1 (meilleur) à 6 (pire) ; Moody's note l'ESG de 1 à 5 (5 = très négatif)</span><span>11</span></div>
+</section>
+
 </div>
 <div class="hint">Cliquez sur un chiffre, un graphique ou une idée pour le détail · ← → pour naviguer</div>
-<div class="nav"><button id="prev" aria-label="Diapo précédente">‹</button><span id="num">1 / 10</span><button id="next" aria-label="Diapo suivante">›</button></div>
+<div class="nav"><button id="prev" aria-label="Diapo précédente">‹</button><span id="num">1 / 14</span><button id="next" aria-label="Diapo suivante">›</button></div>
 
 <script>/*!
  * Chart.js v4.4.1
@@ -440,6 +619,40 @@
 const SP = "S&P, oct. 2026", FI = "Fitch, oct. 2026", MO = "Moody's, avr. 2026", EC = "ECES 2026", TE = "Trading Economics / UN Comtrade", LB = "Lloyds Bank Trade (Banque mondiale, CAPMAS)";
 
 const D = {
+  /* PARTIE IV (Nathan) */
+  n_6: { t: "6 % de chômage officiel en 2025", h: `<p>Ce chiffre masque une précarité des revenus.</p><p class="so">Le chômage officiel (6 %) masque un sous-emploi informel ; capital relationnel et statut priment sur le diplôme.</p>`, s: [] },
+  n_60: { t: "60 % de moins de 30 ans", h: `<p>60 % de la population a moins de 30 ans, malgré une fécondité en baisse.</p>`, s: [] },
+  n_300: { t: "Moins de 300 $ par mois", h: `<p>Salaire moyen mensuel : des revenus faibles, même en emploi.</p>`, s: [] },
+  n_emig: { t: "13 → 22 % veulent partir", h: `<p>Part de la population qui veut quitter le pays, de 2022 à 2026.</p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  jobs: { t: "≈ 0,8 M d'entrants sans emploi créé chaque année", h: `<p>1,3 M d'entrants sur le marché du travail pour 0,5 M de postes créés par an.</p><p class="so">Le chômage touche surtout les jeunes et les femmes.</p>`, s: [] },
+  n_elite: { t: "Élite", h: `<p>Proche de l'armée, des entreprises d'État ; connexions et voies de sortie de son capital vers l'étranger.</p>`, s: [] },
+  n_mid: { t: "Classe moyenne", h: `<p>Salariés et fonctionnaires diplômés, produit du socialisme nassérien : un statut (syndicats, ordres) plus que des moyens.</p><p>Appauvrie de 1995 à 2020, sans aide.</p>`, s: [] },
+  n_pop: { t: "Classes populaires", h: `<p>Investies dans l'économie informelle, dépendantes de l'État par les aides.</p>`, s: [] },
+  n_gini: { t: "Gini ≈ 50 : fortes inégalités", h: `<p>Sentiment de stagnation : le capital relationnel pèse plus que le diplôme.</p>`, s: [] },
+  n_food: { t: "Nourriture : de ⅓ à 45 % des dépenses", h: `<p>La part de la nourriture dans les dépenses des ménages passe d'un tiers à 45 %.</p>`, s: [] },
+  n_bread: { t: "×4 : le prix du pain subventionné", h: `<ul><li>Prix : 0,05 → 0,20 EGP ;</li><li>miche de 120 g → 100 g ;</li><li><b>70 M</b> de bénéficiaires ;</li><li><b>5,3 % → 3,4 %</b> du budget de l'État.</li></ul><p class="so">Exposé au blé ukrainien et russe.</p>`, s: [] },
+  issue: { t: "“Most serious economic issue”", h: `<p>High cost of living : <b>45 %</b><br>Poverty : <b>16 %</b></p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  limit: { t: "“Limited food consumption by money”", h: `<p>Limited by money when buying food : <b>61 %</b></p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  n_rent: { t: "2025 : fin du plafonnement des loyers", h: `<p>1,9M de bails renégociés.</p>`, s: [] },
+  n_ref: { t: "1 M de réfugiés", h: `<p>Soudanais, Palestiniens, Syriens, nombreux au Caire.</p>`, s: [] },
+  n_new: { t: "Nouvelles villes", h: `<p>Faible taux d'occupation, onéreuses et tournées vers l'étranger.</p>`, s: [] },
+  n_ash: { t: "Quartiers ashwawyat", h: `<p>Surpeuplés, mais abandonnés.</p>`, s: [] },
+  n_contract: { t: "Démantèlement du contrat social nassérien", h: `<p><b>L'État se retire de ce qu'il garantissait.</b></p><p><b>Politiques de masse en échec :</b> logement, santé et éducation à bas coût ne tiennent plus leur promesse.</p><p class="so">Le pain subventionné et l'accès au logement cristallisent l'arbitrage entre discipline budgétaire et paix sociale.</p>`, s: [] },
+  n_rep: { t: "Répressions", h: `<p>Répressions des médias (Mada Masr), des manifestations et syndicats muselés.</p>`, s: [] },
+  n_rel: { t: "Organisations religieuses", h: `<p>Organisations caritatives religieuses encadrées : Frères musulmans bannis.</p>`, s: [] },
+  n_cap: { t: "Nouvelle capitale « forteresse »", h: `<p>Octogone et ministères loin du Caire.</p>`, s: [] },
+  n_water: { t: "Eau et électricité", h: `<p>Eau et électricité assurées, avec satisfaction.</p>`, s: [] },
+  n_aid: { t: "Distributeur des aides", h: `<p>Distributeur des aides dont dépendent de nombreux groupes.</p>`, s: [] },
+  n_sec: { t: "Sécurité", h: `<p>Sécurité intérieure (djihadistes) et régionale (Libye, Soudan, Gaza, Iran).</p>`, s: [] },
+  rupt: { t: "Quel point de rupture pour un retour à la rue ?", h: `<p>Situation économique 60 % · Corruption 13 % · Services publics 11 % · Ingérence étrangère 5 % · Immigration 4 % · Autres 7 %.</p><p>« Autres » = instabilité 3, terrorisme 2, climat 1, autre 1.</p><p class="so">Un régime autoritaire qui tient encore son contrat, face à une contestation sans objectif clair.</p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  n_gaza: { t: "Gaza n'a pas suffi", h: `<p>94 % se disent solidaires de la cause, mais la politique intérieure prime.</p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  n_deep: { t: "Une révolution, pour quels objectifs ?", h: `<p>Héritage des révolutions passées.</p><p class="so">Un deep state militaire, judiciaire et économique fait pour résister aux agitations politiques.</p>`, s: [] },
+  n_76: { t: "76 % désintéressés de la politique", h: `<p>Déception post 2011.</p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  n_70: { t: "70 % jugent le type de régime secondaire", h: `<p>Pourvu qu'il règle l'économie.</p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  n_65: { t: "65 % veulent séparer religion et vie socio-économique", h: `<p>Échec de l'expérience Morsi.</p>`, s: ["Arab Barometer, vague IX (2025)"] },
+  n_palace: { t: "Révolution de palais", h: `<p>Classique en Égypte (pôle politique ↔ militaire) ; un successeur est déjà formé par l'académie militaire (2030).</p><p>Aucune différence pour la population.</p>`, s: [] },
+  n_popul: { t: "Révolution populaire", h: `<p>Très faible modification de l'ordre économique, sauf si redistribution massive de l'appareil productif et réforme institutionnelle profonde.</p>`, s: [] },
+  n_inv: { t: "Lecture investisseur", h: `<p>Régime dur à déloger pour en changer la tête : peu de différences pour un investisseur étranger.</p><p class="so">Point critique : les concessions au FMI, que la population n'acceptera pas.</p>`, s: [] },
   /* INTRO */
   i_egy: { t: "Un pays carrefour", h: `<p>Alliée des États-Unis, financée par le Golfe et l'Europe, partenaire de la Russie et de la Chine au sein des BRICS… et entourée de zones de conflit.</p><p class="so">L'Égypte ne choisit pas de camp : elle diversifie ses soutiens.</p>`, s: [] },
   i_us: { t: "États-Unis : un allié", h: `<p>Washington verse chaque année 1,3 Md$ d'aide militaire à l'Égypte.</p>`, s: [SP] },
@@ -607,10 +820,34 @@ const bands = { id: "bands", beforeDatasetsDraw(ch, a, o) { const L = (o && o.li
     const bx = x0 + 2, bw = x1 - x0 - 4, by = ca.top - 54; c.fillStyle = "#fff"; c.strokeStyle = b.stroke; c.lineWidth = 1.5; c.beginPath(); c.roundRect(bx, by, bw, 46, 6); c.fill(); c.stroke();
     c.fillStyle = b.stroke; c.textAlign = "center"; c.font = '600 13.5px "EB Garamond", Georgia, serif'; c.fillText(b.title, (x0 + x1) / 2, by + 18); c.font = '700 18px "EB Garamond", Georgia, serif'; c.fillText(b.sub, (x0 + x1) / 2, by + 38); c.restore(); }); } };
 const charts = {
+  c_jobs: () => ({ type: "bar",
+    data: { labels: ["Entrants", "Postes créés"], datasets: [{ data: [1.3, 0.5], backgroundColor: [RED, OCH], borderRadius: 4, barPercentage: .6,
+      datalabels: { display: true, anchor: "end", align: "top", color: TIT, font: { size: 20, weight: 700 }, formatter: (v) => fr(v) + " M" } }] },
+    plugins: [{ id: "gapjobs", afterDatasetsDraw(ch) { const x0 = ch.scales.x.getPixelForValue(1), y1 = ch.scales.y.getPixelForValue(1.3), y0 = ch.scales.y.getPixelForValue(0.5), c = ch.ctx;
+      c.save(); c.strokeStyle = RED; c.setLineDash([5, 4]); c.lineWidth = 1.6; c.beginPath(); c.moveTo(ch.scales.x.getPixelForValue(0), y1); c.lineTo(x0 + 70, y1); c.stroke(); c.setLineDash([]);
+      c.beginPath(); c.moveTo(x0 + 60, y1); c.lineTo(x0 + 60, y0); c.stroke(); c.fillStyle = RED; c.font = '700 30px "EB Garamond", Georgia, serif'; c.textAlign = "left"; c.fillText("≈ 0,8 M", x0 + 72, (y0 + y1) / 2 + 4);
+      c.font = 'italic 14px "EB Garamond", Georgia, serif'; c.fillText("sans emploi créé", x0 + 72, (y0 + y1) / 2 + 22); c.restore(); } }],
+    options: { ...interactive(() => "jobs"), layout: { padding: { top: 28, right: 150 } },
+      scales: { y: { display: false, min: 0, max: 1.5 }, x: { grid: { display: false }, ticks: { font: { size: 17 } } } } } }),
+  c_issue: () => ({ type: "bar",
+    data: { labels: ["High cost of living", "Poverty"], datasets: [{ data: [45, 16], backgroundColor: [RED, ORA], borderRadius: 3, barPercentage: .75,
+      datalabels: { display: true, anchor: "end", align: "right", color: TIT, font: { size: 16, weight: 700 }, formatter: (v) => v + " %" } }] },
+    options: { ...interactive(() => "issue"), indexAxis: "y", layout: { padding: { right: 44 } },
+      scales: { x: { display: false, min: 0, max: 70 }, y: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 15 }, color: INK } } } } }),
+  c_limit: () => ({ type: "bar",
+    data: { labels: [["Limited by money", "when buying food"]], datasets: [{ data: [61], backgroundColor: [RED], borderRadius: 3, barPercentage: .8,
+      datalabels: { display: true, anchor: "end", align: "right", color: TIT, font: { size: 16, weight: 700 }, formatter: (v) => v + " %" } }] },
+    options: { ...interactive(() => "limit"), indexAxis: "y", layout: { padding: { right: 44 } },
+      scales: { x: { display: false, min: 0, max: 70 }, y: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 15 }, color: INK } } } } }),
+  c_rupt: () => ({ type: "bar",
+    data: { labels: ["Situation économique", "Corruption", "Services publics", "Ingérence étrangère", "Immigration", "Autres"], datasets: [{ data: [60, 13, 11, 5, 4, 7], backgroundColor: [RED, BEI, BEI, BEI, BEI, BEI], borderRadius: 3, barPercentage: .72,
+      datalabels: { display: true, anchor: "end", align: "right", color: (c) => c.dataIndex ? TIT : RED, font: { size: 15.5, weight: 700 }, formatter: (v) => v + " %" } }] },
+    options: { ...interactive(() => "rupt"), indexAxis: "y", layout: { padding: { right: 46 } },
+      scales: { x: { display: false, min: 0, max: 70 }, y: { grid: { display: false }, border: { display: false }, ticks: { font: { size: 14.5 }, color: INK } } } } }),
   c_suez: () => ({ type: "bar", plugins: [bands],
     data: { labels: ["2019","2020","2021","2022","2023","2024","2025","2026p"], datasets: [{ data: [5.8,5.6,6.3,8.0,10.25,4.0,4.1,5.9],
       backgroundColor: ["#F0D58E",OCH,OCH,ORA,TIT,RED,"#F0D58E","rgba(233,185,73,.25)"], borderColor: (c) => c.dataIndex === 7 ? OCH : "transparent", borderWidth: (c) => c.dataIndex === 7 ? 2 : 0, borderRadius: 4, barPercentage: .72,
-      datalabels: { display: true, anchor: "end", align: "top", color: (c) => c.dataIndex === 5 ? RED : TIT, font: { size: 17, weight: 700 }, formatter: (v, c) => c.dataIndex === 7 ? "5,8–6" : c.dataIndex === 6 ? "≈ 4,1" : fr(v).replace(",0", ",0").replace("10,3", "10,25") } }] },
+      datalabels: { display: true, anchor: "end", align: "top", color: (c) => c.dataIndex === 5 ? RED : TIT, font: { size: 17, weight: 700 }, formatter: (v, c) => c.dataIndex === 7 ? "5,8 à 6" : c.dataIndex === 6 ? "≈ 4,1" : fr(v).replace(",0", ",0").replace("10,3", "10,25") } }] },
     options: { ...interactive((el) => el.index === 1 ? "suez20" : el.index === 5 ? "suez24" : el.index === 7 ? "suez26" : "suez"), layout: { padding: { top: 70 } },
       plugins: { bands: { list: [{ at: 1, fill: "rgba(233,185,73,.16)", stroke: "#B98A1C", title: "Covid", sub: "−3 %" }, { at: 5, fill: "rgba(184,58,37,.10)", stroke: RED, title: "Mer Rouge", sub: "−61 %" }] } },
       scales: { y: { display: false, min: 0, max: 11 }, x: { grid: { display: false }, ticks: { font: { size: 16 } } } } } }),
@@ -722,6 +959,17 @@ const charts = {
       scales: { y: { display: false, min: 0, max: 65 }, x: { grid: { display: false } } } } }),
 };
 document.querySelectorAll(".slide").forEach((s, j) => { const sp = s.querySelector(".foot span:last-child"); if (sp) sp.textContent = j + 1; });
+const SY = {"int": {"l": 1, "n": "Charge d'intérêts (solvabilité)", "c": "ok", "sp": "Le poids de la dette reçoit la pire note de sa grille (6/6). Les intérêts absorbent 62,6 % des recettes en 2025 et culmineraient à 68,5 % en 2026, avant de redescendre à 48,5 % en 2029.", "mo": "Sa force budgétaire est notée « ca » : l'Égypte a la plus faible capacité à payer ses intérêts de tous les pays que l'agence note. Le relèvement à B3 en octobre récompense une trajectoire en baisse, pas un niveau soutenable.", "fi": "Les intérêts représentent 63 % des recettes en 2026, contre 14 % pour la médiane des pays notés B. Les baisses de taux devraient les ramener à 52 % en 2028, ce qui resterait « bien au-dessus » de cette médiane.", "v": "Les trois agences partagent notre analyse : c'est la première faiblesse de l'Égypte."}, "ref": {"l": 1, "n": "Refinancement de la dette (liquidité)", "c": "ok", "sp": "La dette a une maturité courte, et les banques détiennent plus de 30 % de leurs actifs en titres de l'État : le Trésor dépend des banques publiques pour se refinancer.", "mo": "Le risque de liquidité est noté « caa » : l'État doit emprunter près de 40 % du PIB par an, dont 23 % de bons du Trésor à renouveler. L'agence retire 2 crans pour ce risque de refinancement.", "fi": "La dette intérieure a une maturité moyenne inférieure à deux ans. C'est un avantage quand les taux baissent, mais l'Égypte garde des besoins de financement extérieur importants.", "v": "Les trois agences partagent notre analyse : l'État doit sans cesse refinancer une dette courte et chère."}, "geo": {"l": 2, "n": "Conflits régionaux et mer Rouge", "c": "ok", "sp": "La perspective stable met en balance les réformes et le risque d'un conflit prolongé. Une escalade à Bab el-Mandeb pourrait casser la reprise de Suez et provoquer des sorties de capitaux.", "mo": "Le trafic du canal de Suez reste à environ 20 % de son niveau d'avant octobre 2023. L'Égypte dépend aussi du gaz israélien, interrompu en mars 2026.", "fi": "Le risque géopolitique fait partie des faiblesses citées pour justifier la note. La guerre en Iran a renchéri l'énergie et le blé, deux produits que l'Égypte importe.", "v": "Les trois agences partagent notre analyse : la géographie expose l'Égypte à tous les chocs régionaux."}, "dev": {"l": 2, "n": "Dépendance aux devises", "c": "pes", "sp": "La position extérieure est notée 5/6. La balance courante est plombée par un large déficit des biens, et S&amp;P prévoit encore un déficit courant d'environ 5 % du PIB en 2027.", "mo": "Le principal canal de transmission des chocs passe par les prix de l'énergie et les échanges commerciaux. Les recettes de Suez restent déprimées.", "fi": "Le déficit courant atteint 5,1 % du PIB en 2026, mais Fitch prévoit qu'il repasse sous 3,5 % en 2028, grâce au tourisme (+10 %) et aux transferts des expatriés (+18 %).", "v": "Notre analyse est plus pessimiste que celle des agences : pour nous, le déficit commercial est structurel (environ 15 % du PIB depuis 2010), et les recettes qui le compensent sont volatiles."}, "conf": {"l": 2, "n": "Confiance des marchés", "c": "pes", "sp": "En 2026, 9,5 Md$ de capitaux sont sortis et la livre a perdu jusqu'à 15 %. Ces flux réagissent surtout aux prix du pétrole, qui reflètent le risque géopolitique.", "mo": "L'agence estime les sorties à 6-8 Md$ et les juge « relativement contenues » : le change flexible a évité de puiser dans les réserves.", "fi": "Plus de 6 Md$ sont sortis, mais la « hot money » est vite revenue et la dépréciation a été largement effacée. Pour Fitch, la crédibilité de la politique économique en sort renforcée.", "v": "Notre analyse est plus pessimiste que celle des agences : elles voient dans 2026 une preuve de résilience, nous y voyons surtout une dépendance à des capitaux qui peuvent repartir à tout moment."}, "ext": {"l": 2, "n": "Après décembre 2026 : sans le FMI ni les dépôts du Golfe", "c": "pes", "sp": "Le soutien du Golfe est massif (35 Md$ des Émirats, 30 Md$ du Qatar), et environ 18 Md$ de dépôts sont garantis jusqu'à la fin du programme du FMI.", "mo": "En octobre, l'agence s'attend à ce que la rigueur budgétaire continue après la fin du FMI, avec des excédents primaires proches de 5 % du PIB.", "fi": "Aucun nouveau programme du FMI n'est attendu pour servir d'ancre, mais Fitch pense que la politique actuelle (taux réels positifs, excédent primaire, change flexible) sera maintenue.", "v": "Notre analyse est plus pessimiste que celle des agences : nous voyons décembre 2026 comme un point de rupture, parce que le programme du FMI et l'engagement du Golfe sur ses dépôts s'arrêtent en même temps."}, "soc": {"l": 2, "n": "Tensions sociales", "c": "ok", "sp": "L'inflation et l'austérité ont toujours été des sources de mécontentement. L'environnement sociopolitique reste fragile, avec un chômage et une pauvreté élevés.", "mo": "Le risque social reçoit S-5, le score le plus négatif : vie chère, chômage des jeunes supérieur à 25 %, y compris chez les diplômés, et pauvreté élevée.", "fi": "Fitch ne fait pas d'analyse sociale spécifique, mais souligne que l'inflation, attendue à 12,3 % en 2027, freine la consommation des ménages.", "v": "S&amp;P et Moody's partagent notre analyse. Fitch n'aborde pas directement ce point."}, "pow": {"l": 3, "n": "Concentration du pouvoir", "c": "ok", "sp": "Les institutions sont notées 5/6 : les décisions sont très centralisées, la succession est difficile à prévoir et la corruption perçue est élevée.", "mo": "La gouvernance est notée G-4 : il y a peu de contre-pouvoirs formels, y compris de la part de la société civile, même si les réformes sont appliquées.", "fi": "La stabilité politique reçoit un score ESG de 5 : l'Égypte n'a pas connu de transition pacifique récente, et l'État de droit est appliqué de façon inégale.", "v": "Les trois agences partagent notre analyse : le pouvoir est stable mais très concentré, ce qui rend l'après-Sissi imprévisible."}, "inf": {"l": 3, "n": "Inflation et taux de change", "c": "ok", "sp": "La politique monétaire est notée 4/6 : la livre flotte depuis mars 2024, mais avec un historique encore court.", "mo": "En octobre, l'agence estime que la réforme du cadre monétaire depuis mars 2024 a renforcé la capacité de l'Égypte à absorber les chocs extérieurs.", "fi": "La désinflation est en pause : Fitch attend 12,3 % d'inflation en 2027, puis moins de 10 % en 2028.", "v": "Les trois agences partagent notre analyse : le change flexible est un vrai progrès, mais encore récent."}, "gro": {"l": 3, "n": "Croissance tirée par la consommation", "c": "pes", "sp": "L'économie est notée 5/6, à cause d'un PIB par habitant faible. Les entreprises publiques et militaires freinent toujours la concurrence.", "mo": "La force économique est notée a3, un point fort de l'Égypte, grâce à la taille et à la diversification de son économie.", "fi": "La croissance est jugée « résiliente » : 5,1 % en 2026, puis 4,7 % en 2027, malgré un investissement plus lent.", "v": "Notre analyse est plus pessimiste que celle des agences : nous insistons sur la chute de l'investissement (de 20 % à 13 % du PIB), qui menace la croissance future."}, "env": {"l": 3, "n": "Eau, Nil et climat", "c": "div", "sp": "Le rapport de S&amp;P ne contient pas d'analyse environnementale spécifique.", "mo": "L'environnement est noté E-4 : forte dépendance au Nil, épuisement de l'eau douce et pollution. Entre 10 et 25 % de la population ou du PIB sont exposés à la montée des eaux.", "fi": "L'outil de vulnérabilité climatique de Fitch ne signale pas de risque élevé pour l'Égypte.", "v": "Les agences ne sont pas d'accord entre elles : Moody's juge le risque élevé, Fitch non, et S&amp;P ne l'aborde pas."}};
+const SYL = { 1: ["Risque critique", "#8E2416"], 2: ["Risque élevé", "#B83A25"], 3: ["Risque modéré", "#E2762F"] };
+const SYV = { ok: "Notre lecture", pes: "Notre lecture", div: "Notre lecture" };
+function sySel(k) { const r = SY[k]; if (!r) return;
+  document.querySelectorAll(".syi").forEach((e) => e.classList.toggle("sel", e.dataset.r === k));
+  const l = document.getElementById("sy_lvl"); l.textContent = SYL[r.l][0]; l.style.color = SYL[r.l][1];
+  document.getElementById("sy_t").textContent = r.n;
+  document.getElementById("sy_sp").innerHTML = r.sp; document.getElementById("sy_mo").innerHTML = r.mo; document.getElementById("sy_fi").innerHTML = r.fi;
+  const v = document.getElementById("sy_v"); v.className = "verdict " + r.c; v.querySelector("b").textContent = SYV[r.c]; v.querySelector("span").innerHTML = r.v; }
+document.querySelectorAll(".syi").forEach((e) => { e.addEventListener("mouseenter", () => sySel(e.dataset.r)); e.addEventListener("click", (ev) => { ev.stopPropagation(); sySel(e.dataset.r); }); });
+sySel("int");
 const made = {};
 function draw(s) { s.querySelectorAll("canvas").forEach((cv) => { if (!made[cv.id]) made[cv.id] = new Chart(cv, charts[cv.id]()); }); }
 
@@ -738,7 +986,7 @@ addEventListener("keydown", (e) => { if (e.key === "Escape") return hide();
 document.getElementById("next").onclick = (e) => { e.stopPropagation(); go(i + 1); };
 document.getElementById("prev").onclick = (e) => { e.stopPropagation(); go(i - 1); };
 addEventListener("resize", fit);
-const m = location.hash.match(/slide-(\d)/);
+const m = location.hash.match(/slide-(\d+)/);
 fit(); go(m ? +m[1] - 1 : 0);
 setTimeout(() => document.querySelector(".hint").classList.add("gone"), 7000);
 </script>
