@@ -77,6 +77,30 @@
   .ratenote { font-size: 13px; font-style: italic; color: var(--grey); margin-top: 6px; }
   .crow { display: grid; gap: 10px; margin-top: 10px; }
   .crow .chip { font-size: 16px; line-height: 1.2; padding: 8px 20px 8px 12px; }
+  .band { margin-top: 12px; padding: 10px 26px 10px 16px; background: linear-gradient(90deg, #FBEDE3, #FBF4E6); border-left: 4px solid var(--orange); border-radius: 4px; font-size: 19px; font-style: italic; color: var(--title); display: flex; justify-content: space-between; }
+  .band b { font-style: normal; color: var(--red); }
+  .roles { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; }
+  .role { padding: 6px 22px 6px 12px; font-size: 17.5px; border-left: 3px solid var(--ochre); }
+  .supp { width: 100%; border-collapse: collapse; font-size: 17px; }
+  .supp td { padding: 7px 8px; border-bottom: 1px solid #F1E8D8; vertical-align: top; }
+  .supp td:first-child { font-weight: 700; color: var(--title); width: 110px; }
+  .supp tr.hot { display: table-row; }
+  .supp tr.hot::after { display: none; }
+  .supp tr.hot td:last-child { position: relative; padding-right: 22px; }
+  .fronts { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; flex: 1; }
+  .front { border: 1.5px solid var(--beige); border-radius: 8px; padding: 14px 26px 14px 16px; background: #fff; display: flex; flex-direction: column; }
+  .front .fh { font-size: 21px; font-weight: 600; color: var(--title); }
+  .front .fh small { font-size: 14px; font-weight: 400; font-style: italic; color: var(--grey); margin-left: 6px; }
+  .front .fb { font-size: 17px; margin-top: 6px; line-height: 1.3; }
+  .front .fi { font-size: 30px; font-weight: 600; color: var(--orange); margin-top: auto; }
+  .front.worst { background: #FBEDE3; border-color: var(--red); }
+  .front.worst .fh, .front.worst .fi { color: var(--red); }
+  .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .kpi { background: var(--cream); border-radius: 8px; padding: 18px 24px 18px 16px; }
+  .kpi small { display: block; font-size: 16px; color: var(--grey); }
+  .kpi b { display: block; font-size: 62px; font-weight: 600; line-height: 1.05; margin-top: 6px; }
+  .rupture { margin-top: auto; background: #FCEFD2; border: 1.5px solid var(--ochre); border-radius: 8px; padding: 12px 26px 12px 16px; font-size: 17px; }
+  .rupture b { display: block; color: var(--title); font-size: 19px; }
   .nav { opacity: .35; transition: opacity .2s; position: fixed; bottom: 14px; right: 18px; display: flex; gap: 8px; align-items: center; color: #ddd; font: 14px system-ui, sans-serif; z-index: 50; }
   .nav:hover { opacity: 1; }
   .nav button { width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(255,255,255,.85); font-size: 18px; cursor: pointer; }
@@ -86,6 +110,60 @@
 </head>
 <body>
 <div class="stage">
+<!-- ============ SLIDE I-1 : GÉOGRAPHIE ============ -->
+<section class="slide" id="g1">
+  <div class="kicker">I · Risques géopolitiques et sécuritaires — Position stratégique</div>
+  <h1>La géographie, premier atout et première vulnérabilité</h1>
+  <h2>Une rente stratégique… exposée aux chocs régionaux</h2>
+  <div class="body" style="grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); gap: 14px 40px;">
+    <div class="col">
+      <div class="ph">Suez : le Covid a moins coûté que la mer Rouge (recettes, Md$)</div>
+      <div class="chart"><canvas id="c_suez"></canvas></div>
+    </div>
+    <div class="col">
+      <div class="ph">Un rôle régional unique</div>
+      <div class="roles">
+        <div class="role hot" data-k="g_pop">Pays le plus peuplé du monde arabe</div>
+        <div class="role hot" data-k="g_gaza">Seul, avec Israël, à border Gaza</div>
+        <div class="role hot" data-k="g_med">Principal médiateur des cessez-le-feu</div>
+      </div>
+      <div class="ph">Une centralité monétisée</div>
+      <table class="supp">
+        <tr class="hot" data-k="g_gulf"><td>Golfe</td><td>EAU 35 Md$ · Qatar 30 Md$ · <b>18 Md$ de dépôts</b></td></tr>
+        <tr class="hot" data-k="g_us"><td>États-Unis</td><td>1,3 Md$/an d'aide militaire</td></tr>
+        <tr class="hot" data-k="g_eu"><td>UE · FMI</td><td>Financements</td></tr>
+        <tr class="hot" data-k="g_ru"><td>Russie</td><td>BRICS · centrale nucléaire</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="band hot" data-k="g_band"><span><b>Trop stratégique pour tomber :</b> l'Égypte ne choisit pas de camp, elle diversifie ses soutiens</span></div>
+  <div class="foot"><span>Sources : Autorité du canal de Suez (2025 estimé, 2026 prévision) ; S&amp;P (oct. 2026) ; Moody's (avr. 2026)</span><span>1</span></div>
+</section>
+<!-- ============ SLIDE I-2 : QUATRE FRONTS ============ -->
+<section class="slide" id="g2">
+  <div class="kicker">I · Risques géopolitiques et sécuritaires — Tensions régionales</div>
+  <h1>Quatre fronts que l'Égypte ne contrôle pas</h1>
+  <h2>Un risque géopolitique élevé, mais assuré</h2>
+  <div class="body" style="grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 14px 36px;">
+    <div class="fronts">
+      <div class="front worst hot" data-k="f_red"><div class="fh">Mer Rouge · Iran<small>le plus grave</small></div><div class="fb">Ormuz fermé, Houthis sur le Bab el-Mandeb</div><div class="fi">1<sup style="font-size:16px">re</sup> attaque sur le sol égyptien</div></div>
+      <div class="front hot" data-k="f_gaza"><div class="fh">Gaza · Israël<small>à l'est</small></div><div class="fb">Gaz israélien coupé en mars ; refus de tout exode vers le Sinaï</div></div>
+      <div class="front hot" data-k="f_sud"><div class="fh">Soudan<small>au sud</small></div><div class="fb">Égypte et Émirats soutiennent des camps opposés</div><div class="fi">&gt; 1 million de réfugiés</div></div>
+      <div class="front hot" data-k="f_nil"><div class="fh">Barrage éthiopien<small>au sud-est</small></div><div class="fb">Peu probable à court terme, mais existentiel</div><div class="fi">97 % de l'eau vient du Nil</div></div>
+    </div>
+    <div class="col">
+      <div class="ph">Diagnostic : risque élevé, mais assuré</div>
+      <div class="kpis">
+        <div class="kpi hot" data-k="k_fx"><small>Livre égyptienne en 2026</small><b style="color:var(--red)">−15 %</b></div>
+        <div class="kpi hot" data-k="k_dg"><small>Dégradations en 2026</small><b style="color:#6B8E23">0</b></div>
+      </div>
+      <p style="font-size:19px;margin-top:16px;font-style:italic;color:var(--title)">Aucune agence n'a dégradé l'Égypte malgré la guerre.</p>
+      <div class="rupture hot" data-k="k_break"><b>Point de rupture : décembre 2026</b>Fin du programme du FMI et de l'engagement du Golfe sur ses dépôts</div>
+    </div>
+  </div>
+  <div class="band hot" data-k="f_band"><span><b>Tous ces chocs frappent la balance des paiements</b></span><span>→ Partie II</span></div>
+  <div class="foot"><span>Sources : S&amp;P (oct. 2026) ; Fitch (oct. 2026) ; Moody's (avr. 2026)</span><span>2</span></div>
+</section>
 <!-- ============ SLIDE 1 ============ -->
 <section class="slide" id="s1">
   <div class="kicker">II · Risques économiques et financiers — Croissance et structure du PIB</div>
@@ -239,12 +317,33 @@
 </section>
 </div>
 <div class="hint">Cliquez sur un chiffre, un graphique ou une idée pour le détail · ← → pour naviguer</div>
-<div class="nav"><button id="prev" aria-label="Diapo précédente">‹</button><span id="num">1 / 6</span><button id="next" aria-label="Diapo suivante">›</button></div>
+<div class="nav"><button id="prev" aria-label="Diapo précédente">‹</button><span id="num">1 / 8</span><button id="next" aria-label="Diapo suivante">›</button></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
 const SP = "S&P, oct. 2026", FI = "Fitch, oct. 2026", MO = "Moody's, avr. 2026", EC = "ECES 2026", TE = "Trading Economics / UN Comtrade", LB = "Lloyds Bank Trade (Banque mondiale, CAPMAS)";
 const D = {
+  /* PARTIE I */
+  suez: { t: "Suez, une rente en devises", h: `<p>Le canal relie la Méditerranée à la mer Rouge. Ses recettes ont atteint un record de <b>10,25 Md$ en 2023</b>.</p><p>Elles remontent en 2025-2026, mais le trafic reste à environ la moitié de son niveau d'avant la crise.</p>`, s: ["Autorité du canal de Suez"] },
+  suez20: { t: "Covid : −3 % seulement", h: `<p>En 2020, malgré l'arrêt du commerce mondial, les recettes ne reculent que de 3 % (de 5,8 à 5,6 Md$).</p><p class="so">Un choc mondial a donc peu coûté à l'Égypte.</p>`, s: ["Autorité du canal de Suez"] },
+  suez24: { t: "Mer Rouge : −61 %", h: `<p>Avec les attaques houthies, les navires contournent l'Afrique : les recettes chutent de 10,25 à <b>4,0 Md$</b> en 2024.</p><p class="so">Un choc régional a coûté vingt fois plus que le Covid : le vrai risque de l'Égypte est géopolitique.</p>`, s: ["Autorité du canal de Suez", MO] },
+  suez26: { t: "2026 : une reprise partielle", h: `<p>L'Autorité du canal prévoit 5,8 à 6 Md$, soit à peine plus que le niveau de 2019.</p><p>S&amp;P observe aussi une reprise : 3,4 Md$ sur les 9 premiers mois de 2025/26, contre 2,8 Md$ un an plus tôt.</p>`, s: ["Autorité du canal de Suez", SP] },
+  g_pop: { t: "Le poids démographique", h: `<p>L'Égypte est le pays le plus peuplé du monde arabe : c'est un acteur incontournable de la région.</p>`, s: [] },
+  g_gaza: { t: "Une frontière avec Gaza", h: `<p>Avec Israël, l'Égypte est le seul pays à border Gaza, par le point de passage de Rafah.</p><p>Elle est donc en première ligne pour l'aide humanitaire et pour le risque d'exode.</p>`, s: [] },
+  g_med: { t: "Le médiateur", h: `<p>L'Égypte est le principal médiateur des cessez-le-feu entre Israël et le Hamas.</p><p class="so">Ce rôle la rend indispensable aux grandes puissances.</p>`, s: [SP] },
+  g_gulf: { t: "Le Golfe, premier assureur", h: `<ul><li><b>Émirats :</b> 35 Md$ investis dans Ras El-Hekma (2024) ;</li><li><b>Qatar :</b> accord de 30 Md$ dans le tourisme (novembre 2025) ;</li><li>environ <b>18 Md$ de dépôts</b> à la banque centrale.</li></ul>`, s: [SP] },
+  g_us: { t: "États-Unis : 1,3 Md$ par an", h: `<p>Washington verse chaque année 1,3 Md$ d'aide militaire à l'Égypte, un soutien constant depuis les accords de Camp David.</p>`, s: [SP] },
+  g_eu: { t: "UE et FMI", h: `<p><b>UE :</b> 7,4 Md€ sur 2024-2028.</p><p><b>FMI :</b> un programme de 8 Md$ jusqu'à fin 2026.</p>`, s: [SP] },
+  g_ru: { t: "La carte russe", h: `<p>Le Caire est membre des BRICS et construit une centrale nucléaire avec la Russie, à El-Dabaa.</p><p class="so">L'Égypte ne choisit pas de camp : elle diversifie ses soutiens.</p>`, s: [] },
+  g_band: { t: "Trop stratégique pour tomber", h: `<p>L'Égypte monétise sa centralité : Golfe, États-Unis, Europe, FMI, et même Russie et Chine ont tous intérêt à ce qu'elle ne s'effondre pas.</p><p>C'est ce qui explique les sauvetages successifs, que l'on retrouve dans les parties II et III.</p>`, s: [SP] },
+  f_red: { t: "Mer Rouge · Iran : le front le plus grave", h: `<p>Depuis la guerre avec l'Iran, déclenchée fin février 2026, le détroit d'Ormuz est perturbé et les Houthis menacent le Bab el-Mandeb.</p><p>En juillet, un drone a frappé le port de Damiette : c'est la première attaque sur le sol égyptien.</p><p class="so">C'est un double choc : Suez et la facture énergétique.</p>`, s: [SP, FI] },
+  f_gaza: { t: "Gaza · Israël", h: `<p>L'Égypte importe du gaz israélien, du gisement Leviathan, mais la production a été suspendue en mars 2026 pour raisons de sécurité.</p><p>Le Caire refuse aussi tout exode de Palestiniens vers le Sinaï.</p>`, s: [SP] },
+  f_sud: { t: "Soudan", h: `<p>La guerre a poussé plus d'un million de réfugiés vers l'Égypte.</p><p class="so">Paradoxe : l'Égypte et les Émirats, son propre bailleur, y soutiennent des camps opposés.</p>`, s: [] },
+  f_nil: { t: "Le barrage éthiopien", h: `<p>Le grand barrage de la Renaissance, sur le Nil Bleu, menace la principale source d'eau du pays : <b>97 %</b> de l'eau égyptienne vient du Nil.</p><p>Un conflit est peu probable à court terme, mais l'enjeu est existentiel. Moody's souligne aussi cette dépendance au Nil.</p>`, s: [MO] },
+  k_fx: { t: "La livre a perdu jusqu'à 15 %", h: `<p>Dans les mois qui suivent le début du conflit, 9,5 Md$ de capitaux sortent et la livre perd jusqu'à 15 % face au dollar, avant de se redresser en grande partie.</p>`, s: [SP] },
+  k_dg: { t: "Aucune dégradation", h: `<p>S&amp;P et Fitch confirment B, perspective stable, en octobre 2026. Moody's maintient Caa1, avec une perspective positive.</p><p class="so">Le risque est élevé, mais « assuré » par les soutiens extérieurs.</p>`, s: [SP, FI, MO] },
+  k_break: { t: "Décembre 2026 : point de rupture", h: `<p>Le programme du FMI se termine, en même temps que l'engagement du Golfe à maintenir ses dépôts à la banque centrale.</p><p>Aucun nouveau programme n'est prévu.</p>`, s: [SP, FI] },
+  f_band: { t: "Vers la partie II", h: `<p>Suez, énergie, tourisme, capitaux : tous ces chocs passent par la <b>balance des paiements</b>. C'est l'objet de la partie suivante.</p>`, s: [] },
   /* SLIDE 1 */
   conso: { t: "Ménages : de 74,8 % à 87,8 % du PIB", h: `<p>La part de la consommation des ménages ne cesse de monter : 80,5 % avant le Covid (2018/19), <b>87,8 %</b> en 2024/25.</p><p>Elle est portée par les transferts des expatriés et un marché du travail stable.</p><p class="so">C'est elle qui fait la croissance, mais elle ne crée pas de capacités de production.</p>`, s: [EC + " (fig. 2)", SP] },
   invest: { t: "Investissement : de 20,1 % à 13,2 % du PIB", h: `<p>L'investissement atteint un pic de 20,1 % juste avant le Covid (2018/19), puis retombe à <b>13,2 %</b>. Or c'est lui qui prépare la production de demain : usines, machines, infrastructures.</p><p>L'État a plafonné ses grands projets, et le privé n'a pas pris le relais.</p><p class="so">La croissance d'aujourd'hui risque de s'essouffler demain.</p>`, s: [EC + " (fig. 2)", SP, MO] },
@@ -319,7 +418,7 @@ function place(pop, r) { /* r = rectangle de l'élément en coordonnées de la s
 function show(k, r, el, ghost) {
   const c = D[k]; if (!c) return; clearTimeout(hideT);
   const pop = slides[i].querySelector(".pop");
-  pop.innerHTML = `<b class="t">${c.t}</b>${c.h}<div class="src">Source${c.s.length > 1 ? "s" : ""} : ${c.s.join(" ; ")}</div>`;
+  pop.innerHTML = `<b class="t">${c.t}</b>${c.h}${c.s.length ? `<div class="src">Source${c.s.length > 1 ? "s" : ""} : ${c.s.join(" ; ")}</div>` : ""}`;
   pop.classList.toggle("ghost", !!ghost); place(pop, r); pop.classList.add("show");
   document.querySelectorAll(".hot.on").forEach((h) => h.classList.remove("on")); if (el) el.classList.add("on");
   curKey = k; curEl = el;
@@ -363,7 +462,19 @@ const covid = { id: "covid", beforeDatasetsDraw(ch, a, o) { if (!o.at) return; c
 const hline = { id: "hline", afterDatasetsDraw(ch, a, o) { if (o.y == null) return; const y = ch.scales.y.getPixelForValue(o.y), ca = ch.chartArea, c = ch.ctx;
   c.save(); c.strokeStyle = "#B83A25"; c.setLineDash([6, 5]); c.lineWidth = 1.6; c.beginPath(); c.moveTo(ca.left, y); c.lineTo(ca.right, y); c.stroke();
   c.setLineDash([]); c.font = 'italic 600 13.5px "EB Garamond", Georgia, serif'; const w = c.measureText(o.label).width; const lx = o.left ? ca.left : ca.right - w; c.fillStyle = "rgba(255,253,248,.92)"; c.fillRect(lx - 3, y + 3, w + 6, 16); c.fillStyle = "#B83A25"; c.textAlign = "left"; c.fillText(o.label, lx, y + 15); c.restore(); } };
+const bands = { id: "bands", beforeDatasetsDraw(ch, a, o) { const L = (o && o.list) || []; const x = ch.scales.x, ca = ch.chartArea, c = ch.ctx;
+  const st = (x.getPixelForValue(1) - x.getPixelForValue(0)) / 2;
+  L.forEach((b) => { const x0 = x.getPixelForValue(b.at) - st * .96, x1 = x.getPixelForValue(b.at) + st * .96; c.save(); c.fillStyle = b.fill; c.fillRect(x0, ca.top - 58, x1 - x0, ca.bottom - ca.top + 58);
+    const bx = x0 + 2, bw = x1 - x0 - 4, by = ca.top - 54; c.fillStyle = "#fff"; c.strokeStyle = b.stroke; c.lineWidth = 1.5; c.beginPath(); c.roundRect(bx, by, bw, 46, 6); c.fill(); c.stroke();
+    c.fillStyle = b.stroke; c.textAlign = "center"; c.font = '600 13.5px "EB Garamond", Georgia, serif'; c.fillText(b.title, (x0 + x1) / 2, by + 18); c.font = '700 18px "EB Garamond", Georgia, serif'; c.fillText(b.sub, (x0 + x1) / 2, by + 38); c.restore(); }); } };
 const charts = {
+  c_suez: () => ({ type: "bar", plugins: [bands],
+    data: { labels: ["2019","2020","2021","2022","2023","2024","2025","2026p"], datasets: [{ data: [5.8,5.6,6.3,8.0,10.25,4.0,4.1,5.9],
+      backgroundColor: ["#F0D58E",OCH,OCH,ORA,TIT,RED,"#F0D58E","rgba(233,185,73,.25)"], borderColor: (c) => c.dataIndex === 7 ? OCH : "transparent", borderWidth: (c) => c.dataIndex === 7 ? 2 : 0, borderRadius: 4, barPercentage: .72,
+      datalabels: { display: true, anchor: "end", align: "top", color: (c) => c.dataIndex === 5 ? RED : TIT, font: { size: 17, weight: 700 }, formatter: (v, c) => c.dataIndex === 7 ? "5,8–6" : c.dataIndex === 6 ? "≈ 4,1" : fr(v).replace(",0", ",0").replace("10,3", "10,25") } }] },
+    options: { ...interactive((el) => el.index === 1 ? "suez20" : el.index === 5 ? "suez24" : el.index === 7 ? "suez26" : "suez"), layout: { padding: { top: 70 } },
+      plugins: { bands: { list: [{ at: 1, fill: "rgba(233,185,73,.16)", stroke: "#B98A1C", title: "Covid", sub: "−3 %" }, { at: 5, fill: "rgba(184,58,37,.10)", stroke: RED, title: "Mer Rouge", sub: "−61 %" }] } },
+      scales: { y: { display: false, min: 0, max: 11 }, x: { grid: { display: false }, ticks: { font: { size: 16 } } } } } }),
   c_demand: () => ({ type: "line", plugins: [covid],
     data: { labels: Y1, datasets: [
       { label: "Consommation des ménages (axe gauche)", data: [74.8,80.7,80.8,82.9,82.4,83.1,86.1,83.3,80.5,83.6,86.0,82.5,82.6,83.9,87.8], borderColor: RED, backgroundColor: RED, borderWidth: 3, pointRadius: 3.5, pointHoverRadius: 7, yAxisID: "y",
@@ -468,6 +579,7 @@ const charts = {
       plugins: { hline: { y: 25, label: "seuil d'alerte : 25 %" } },
       scales: { y: { display: false, min: 0, max: 65 }, x: { grid: { display: false } } } } }),
 };
+document.querySelectorAll(".slide").forEach((s, j) => { const sp = s.querySelector(".foot span:last-child"); if (sp) sp.textContent = j + 1; });
 const made = {};
 function draw(s) { s.querySelectorAll("canvas").forEach((cv) => { if (!made[cv.id]) made[cv.id] = new Chart(cv, charts[cv.id]()); }); }
 /* ---------- navigation ---------- */
