@@ -22,11 +22,13 @@
   .ph { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--title); border-bottom: 1.5px solid var(--beige); padding-bottom: 4px; margin-bottom: 6px; }
   .chart { position: relative; flex: 1; min-height: 0; }
   .note { font-size: 13.5px; font-style: italic; color: var(--grey); margin-top: 2px; }
+  /* éléments interactifs */
   .hot { position: relative; cursor: pointer; border-radius: 6px; transition: background .15s; }
   .hot:hover, .hot.on { background: var(--cream); }
   .hot::after { content: ""; position: absolute; top: 9px; right: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); opacity: .7; }
   .hot.bare::after { display: none; }
   .hot.bare { border-bottom: 1.5px dotted var(--orange); border-radius: 0; }
+  /* infobulle sous l'élément */
   .pop { position: absolute; z-index: 30; width: 390px; background: #fff; border-top: 4px solid var(--orange); border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(46,31,23,.22); padding: 12px 16px 10px; font-size: 16px; line-height: 1.32; opacity: 0; transform: translateY(-6px); transition: opacity .15s, transform .15s; pointer-events: none; }
   .pop.show { opacity: 1; transform: none; pointer-events: auto; }
   .pop.show.ghost { pointer-events: none; }
@@ -46,6 +48,7 @@
   .tile span { display: block; font-size: 15px; margin-top: 4px; line-height: 1.2; }
   .tile.red { border-left-color: var(--red); } .tile.red b { color: var(--red); }
   .tile.ochre { border-left-color: var(--ochre); }
+  .diag { margin-top: 10px; padding: 8px 26px 8px 14px; color: var(--red); font-weight: 600; font-style: italic; font-size: 18px; background: linear-gradient(90deg, #FBEDE3, transparent 70%); border-radius: 4px; }
   .foot { border-top: 1px solid var(--beige); margin-top: 10px; padding: 5px 0 12px; font-size: 11.5px; font-style: italic; color: var(--grey); display: flex; justify-content: space-between; gap: 20px; }
   .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13.5px; margin-top: 2px; }
   .legend i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
@@ -64,6 +67,16 @@
   .net .lab { display: block; font-size: 12.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--orange); font-weight: 700; }
   .net .hot { padding: 0 2px; }
   .net .end { color: var(--red); font-weight: 700; }
+  .rate { width: 100%; border-collapse: collapse; font-size: 15px; text-align: center; }
+  .rate th { font-style: italic; font-weight: 600; color: var(--title); font-size: 16px; padding: 4px 2px 6px; border-bottom: 1.5px solid var(--title); }
+  .rate td { padding: 3.2px 2px; border-bottom: 1px solid #F1E8D8; color: var(--grey); }
+  .rate tr.ig td { border-bottom: 2px dashed var(--orange); }
+  .rate td.cur { color: #fff; font-weight: 700; border-radius: 4px; }
+  .rate td.cur.c1 { background: var(--red); } .rate td.cur.c2 { background: var(--orange); }
+  .rate td.cur::after { top: 50%; margin-top: -3.5px; right: 6px; background: #fff; }
+  .ratenote { font-size: 13px; font-style: italic; color: var(--grey); margin-top: 6px; }
+  .crow { display: grid; gap: 10px; margin-top: 10px; }
+  .crow .chip { font-size: 16px; line-height: 1.2; padding: 8px 20px 8px 12px; }
   .nav { opacity: .35; transition: opacity .2s; position: fixed; bottom: 14px; right: 18px; display: flex; gap: 8px; align-items: center; color: #ddd; font: 14px system-ui, sans-serif; z-index: 50; }
   .nav:hover { opacity: 1; }
   .nav button { width: 38px; height: 38px; border-radius: 50%; border: none; background: rgba(255,255,255,.85); font-size: 18px; cursor: pointer; }
@@ -75,7 +88,7 @@
 <div class="stage">
 <!-- ============ SLIDE 1 ============ -->
 <section class="slide" id="s1">
-  <div class="kicker">1 · Croissance et structure du PIB</div>
+  <div class="kicker">II · Risques économiques et financiers — Croissance et structure du PIB</div>
   <h1>Un PIB porté par les ménages</h1>
   <h2>Une économie diversifiée mais fragile : on consomme plus, on investit moins</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.35fr) minmax(0,.75fr) minmax(0,1fr); grid-template-rows: 1fr auto; gap: 16px 30px;">
@@ -103,7 +116,7 @@
 </section>
 <!-- ============ SLIDE 2 ============ -->
 <section class="slide" id="s2">
-  <div class="kicker">2 · Commerce extérieur et balance des paiements</div>
+  <div class="kicker">II · Risques économiques et financiers — Commerce extérieur</div>
   <h1>Un déficit chronique, comblé par des devises fragiles</h1>
   <h2>Une dépendance structurelle aux devises</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); grid-template-rows: 1fr auto;">
@@ -125,7 +138,7 @@
 </section>
 <!-- ============ SLIDE 3 ============ -->
 <section class="slide" id="s3">
-  <div class="kicker">3 · Inflation, dévaluations et instabilité monétaire</div>
+  <div class="kicker">II · Risques économiques et financiers — Monnaie et inflation</div>
   <h1>Une livre divisée par cinq depuis 2016</h1>
   <h2>Le manque de devises se paie en inflation… et en dépendance aux sauveteurs</h2>
   <div class="body" style="grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);">
@@ -154,14 +167,85 @@
   </div>
   <div class="foot"><span>Sources : ECES 2026 (tableau 2) ; S&amp;P (oct. 2026) ; Fitch (oct. 2026) ; Moody's (avr. 2026) · change : moyenne de juin ; 2017/18 non publié</span><span>3</span></div>
 </section>
+<!-- ============ SLIDE 4 : DETTE ============ -->
+<section class="slide" id="s4">
+  <div class="kicker">III · Risque souverain — Endettement</div>
+  <h1>Une dette élevée et opaque, financée à l'extérieur</h1>
+  <h2>Une asymétrie d'information qui constitue un risque majeur pour les créanciers</h2>
+  <div class="body" style="grid-template-columns: minmax(0,1.55fr) minmax(0,1fr); grid-template-rows: 1fr auto; gap: 14px 40px;">
+    <div class="col">
+      <div class="ph">PIB nominal et dette publique (Md$) · dette / PIB (%)</div>
+      <div class="chart"><canvas id="c_debt"></canvas></div>
+    </div>
+    <div class="col">
+      <div class="ph">Notation de la dette de l'Égypte</div>
+      <table class="rate">
+        <tr><th>Moody's</th><th>S&amp;P</th><th>Fitch</th></tr>
+        <tr class="ig"><td>Baa3</td><td>BBB-</td><td>BBB-</td></tr>
+        <tr><td>Ba1</td><td>BB+</td><td>BB+</td></tr>
+        <tr><td>Ba2</td><td>BB</td><td>BB</td></tr>
+        <tr><td>Ba3</td><td>BB-</td><td>BB-</td></tr>
+        <tr><td>B1</td><td>B+</td><td>B+</td></tr>
+        <tr><td>B2</td><td class="cur c2 hot" data-k="r_sp">B</td><td class="cur c2 hot" data-k="r_fi">B</td></tr>
+        <tr><td>B3</td><td>B-</td><td>B-</td></tr>
+        <tr><td class="cur c1 hot" data-k="r_mo">Caa1</td><td>CCC+</td><td>CCC+</td></tr>
+        <tr><td>Caa2</td><td>CCC</td><td>CCC</td></tr>
+        <tr><td>Caa3</td><td>CCC-</td><td>CCC-</td></tr>
+        <tr><td>Ca</td><td>CC / C</td><td>CC / C</td></tr>
+        <tr><td>C</td><td>D</td><td>D</td></tr>
+      </table>
+      <div class="ratenote hot bare" data-k="r_scale" style="align-self:flex-start">— — au-dessus : catégorie « investissement » ; en dessous : spéculative</div>
+    </div>
+    <div class="crow" style="grid-column: span 2; grid-template-columns: repeat(5, 1fr);">
+      <div class="chip hot" data-k="d_ext"><b>Dette extérieure ×4</b> depuis 2014</div>
+      <div class="chip hot" data-k="d_opaque" style="border-left-color:var(--red)"><b>Une dette sous-estimée ?</b></div>
+      <div class="chip hot" data-k="d_fx"><b>32,1 %</b> de la dette en devises</div>
+      <div class="chip hot" data-k="d_mega"><b>Mégaprojets</b> et recettes en devises en recul</div>
+      <div class="chip hot" data-k="d_gulf"><b>Golfe :</b> des dépôts aux participations</div>
+    </div>
+  </div>
+  <div class="foot"><span>Sources : S&amp;P (oct. 2026) ; Moody's (avr. 2026) ; Fitch (oct. 2026) · exercices clos fin juin</span><span>4</span></div>
+</section>
+<!-- ============ SLIDE 5 : SERVICE DE LA DETTE ============ -->
+<section class="slide" id="s5">
+  <div class="kicker">III · Risque souverain — Solvabilité</div>
+  <h1>Un service de la dette qui absorbe plus de 60 % des revenus</h1>
+  <h2>Charges d'intérêts au plus haut et remboursements en devises en hausse</h2>
+  <div class="body" style="grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px 40px;">
+    <div class="col"><div class="ph">Service de la dette extérieure (Md$) · encours (Md$, axe droit)</div><div class="chart"><canvas id="c_xds"></canvas></div></div>
+    <div class="col"><div class="ph">Intérêts / recettes publiques de l'Égypte</div><div class="chart"><canvas id="c_ir"></canvas></div></div>
+    <div class="col"><div class="ph">Intérêts / recettes : comparaison internationale (2025)</div><div class="chart"><canvas id="c_peer"></canvas></div></div>
+    <div class="col"><div class="ph">Projections : intérêts / recettes</div><div class="chart"><canvas id="c_proj"></canvas></div></div>
+  </div>
+  <div class="foot"><span>Sources : Moody's (avr. 2026) ; S&amp;P (oct. 2026) · exercices clos fin juin</span><span>5</span></div>
+</section>
+<!-- ============ SLIDE 6 : LIQUIDITÉ ============ -->
+<section class="slide" id="s6">
+  <div class="kicker">III · Risque souverain — Liquidité</div>
+  <h1>Analyse de la liquidité</h1>
+  <h2>Des ratios au-dessus des seuils d'alerte, une couverture soutenue par l'or</h2>
+  <div class="body" style="grid-template-columns: repeat(3, minmax(0,1fr)); grid-template-rows: 1fr auto; gap: 14px 34px;">
+    <div class="col"><div class="ph">Dette à court terme / réserves</div><div class="chart"><canvas id="c_std"></canvas></div></div>
+    <div class="col"><div class="ph">Réserves / importations (mois)</div><div class="chart"><canvas id="c_cov"></canvas></div></div>
+    <div class="col"><div class="ph">Service de la dette / exportations</div><div class="chart"><canvas id="c_dse"></canvas></div></div>
+    <div class="crow" style="grid-column: span 3; grid-template-columns: repeat(4, 1fr);">
+      <div class="chip hot" data-k="l_short" style="border-left-color:var(--red)"><b>Réserves insuffisantes</b> face à la dette à court terme</div>
+      <div class="chip hot" data-k="l_gold"><b>Une couverture</b> soutenue par l'or</div>
+      <div class="chip hot" data-k="l_princ"><b>Le principal :</b> 78 % du service de la dette</div>
+      <div class="chip hot" data-k="l_trade"><b>Des devises</b> qui ne viennent plus du commerce</div>
+    </div>
+  </div>
+  <div class="foot"><span>Sources : Moody's (avr. 2026) ; S&amp;P (oct. 2026) ; Banque centrale d'Égypte · exercices clos fin juin ; LTM = 12 mois glissants</span><span>6</span></div>
+</section>
 </div>
 <div class="hint">Cliquez sur un chiffre, un graphique ou une idée pour le détail · ← → pour naviguer</div>
-<div class="nav"><button id="prev" aria-label="Diapo précédente">‹</button><span id="num">1 / 3</span><button id="next" aria-label="Diapo suivante">›</button></div>
+<div class="nav"><button id="prev" aria-label="Diapo précédente">‹</button><span id="num">1 / 6</span><button id="next" aria-label="Diapo suivante">›</button></div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
 const SP = "S&P, oct. 2026", FI = "Fitch, oct. 2026", MO = "Moody's, avr. 2026", EC = "ECES 2026", TE = "Trading Economics / UN Comtrade", LB = "Lloyds Bank Trade (Banque mondiale, CAPMAS)";
 const D = {
+  /* SLIDE 1 */
   conso: { t: "Ménages : de 74,8 % à 87,8 % du PIB", h: `<p>La part de la consommation des ménages ne cesse de monter : 80,5 % avant le Covid (2018/19), <b>87,8 %</b> en 2024/25.</p><p>Elle est portée par les transferts des expatriés et un marché du travail stable.</p><p class="so">C'est elle qui fait la croissance, mais elle ne crée pas de capacités de production.</p>`, s: [EC + " (fig. 2)", SP] },
   invest: { t: "Investissement : de 20,1 % à 13,2 % du PIB", h: `<p>L'investissement atteint un pic de 20,1 % juste avant le Covid (2018/19), puis retombe à <b>13,2 %</b>. Or c'est lui qui prépare la production de demain : usines, machines, infrastructures.</p><p>L'État a plafonné ses grands projets, et le privé n'a pas pris le relais.</p><p class="so">La croissance d'aujourd'hui risque de s'essouffler demain.</p>`, s: [EC + " (fig. 2)", SP, MO] },
   mix_m: { t: "Les ménages : 87,8 % du PIB", h: `<p>Près de 9/10e du PIB viennent de la consommation des ménages. Le PIB dépend donc de leur pouvoir d'achat, que l'inflation grignote.</p>`, s: [EC + " (fig. 2)"] },
@@ -169,14 +253,16 @@ const D = {
   mix_g: { t: "L'État : 6,3 % du PIB", h: `<p>La consommation publique a presque été divisée par deux depuis 2010/11 (11,5 %), signe de la rigueur budgétaire.</p>`, s: [EC + " (fig. 2)"] },
   growth: { t: "+5,1 %, la meilleure croissance depuis trois ans", h: `<p>Ses moteurs : l'industrie hors pétrole, le commerce, les TIC et le tourisme.</p><p>Les prévisions pour 2026/27 vont de <b>4,5 %</b> (S&amp;P) à <b>4,7 %</b> (Fitch), ralenties par l'inflation et les perturbations du transport maritime.</p>`, s: [SP, FI] },
   gdp: { t: "Un PIB qui recule… en dollars", h: `<p>Le PIB passe de 477 Md$ en 2022 à <b>365 Md$</b> en 2025, alors que l'économie croît en volume.</p><p>Cela s'explique par les dévaluations : une fois convertie en dollars, la production vaut moins.</p><p class="so">Les importations et les dettes en dollars pèsent donc plus lourd.</p>`, s: [SP] },
-  manuf: { t: "Une base industrielle étroite", h: `<p>L'industrie manufacturière ne pèse que <b>15,1 %</b> du PIB, moins que l'agriculture (17,3 %).</p><p class="so">Or c'est elle qui permet d'exporter régulièrement, donc de gagner des devises stables. Sans elle, l'Égypte dépend du tourisme, de Suez et des hydrocarbures.</p>`, s: [EC + " (tableau 3)", SP] },
+  manuf: { t: "Une base industrielle étroite", h: `<p>L'industrie manufacturière ne pèse que <b>15,1 %</b> du PIB, moins que l'agriculture (17,3 %).</p><p class="so">Or c'est lui qui permet d'exporter régulièrement, donc de gagner des devises stables. Sans lui, l'Égypte dépend du tourisme, de Suez et des hydrocarbures.</p>`, s: [EC + " (tableau 3)", SP] },
   sect: { t: "Une économie diversifiée", h: `<p>Aucun secteur ne dépasse 18 % du PIB : agriculture, industrie, commerce et construction pèsent chacun entre 10 et 17 %.</p><p class="so">Mais les secteurs qui rapportent des devises sont petits : tourisme 3,7 %, canal de Suez 1,0 %. Et la construction et l'immobilier (17,5 % à eux deux) ne s'exportent pas.</p>`, s: [EC + " (tableau 3)"] },
   poverty: { t: "Une croissance peu inclusive", h: `<p>29,7 % de la population vit sous le seuil national de pauvreté, et 4,5 % dans l'extrême pauvreté. L'inflation réduit encore le pouvoir d'achat.</p><p class="so">Cela rend les réformes impopulaires, comme la baisse des subventions, et augmente le risque d'un retour en arrière.</p>`, s: [LB, MO] },
+  /* SLIDE 2 */
   trade: { t: "Un déficit commercial chronique", h: `<p>Chaque année depuis 2010/11, l'Égypte importe plus de biens qu'elle n'en exporte. Le déficit atteint <b>14 % du PIB</b> en 2024/25, et S&amp;P l'estime à 15,2 % en 2025/26.</p><p>Il s'aggrave parce que l'Égypte importe son gaz depuis 2023 : carburant et gaz représentent environ 30 % des importations.</p><p class="so">Or les importations se paient en dollars : le pays a besoin d'un flux permanent de devises.</p>`, s: [EC + " (tableau 2)", SP] },
   ca: { t: "Le solde courant", h: `<p>Il regroupe <b>tous</b> les échanges avec l'étranger : biens, services, revenus et transferts. Il est bien moins négatif que le solde commercial grâce aux transferts, au tourisme et à Suez.</p><p>Les estimations varient selon les sources : −5,5 % du PIB en 2024/25 pour l'ECES, −4,2 % pour S&amp;P. S&amp;P prévoit environ −5 % en 2026/27.</p>`, s: [EC + " (tableau 2)", SP] },
   remit: { t: "L'argent des expatriés", h: `<p>Les transferts envoyés par les Égyptiens de l'étranger à leur famille sont passés de 6,8 % à <b>plus de 10 % du PIB</b>, un niveau record (+18 % en 2025/26).</p><p>Le change flexible les a ramenés vers le circuit officiel. Le tourisme progresse aussi : +10 %.</p>`, s: [MO, FI] },
   suez: { t: "Suez, la recette la plus exposée", h: `<p>Avec les attaques en mer Rouge, les navires contournent l'Afrique. Les recettes du canal tombent de <b>2,5 %</b> du PIB (fin 2023) à <b>environ 1 %</b> (2025).</p><p class="so">Une nouvelle escalade à Bab el-Mandeb pourrait les faire chuter à nouveau.</p>`, s: [MO, SP] },
   partners: { t: "Des partenaires asymétriques (2025)", h: `<table><tr><th>Clients</th><th>Fournisseurs</th></tr><tr><td>Émirats 13,7 %</td><td><b>Chine 18,6 %</b></td></tr><tr><td>Italie 7,9 %</td><td>États-Unis 12,7 %</td></tr><tr><td>Turquie 6,4 %</td><td>Arabie s. 9,4 %</td></tr><tr><td>Arabie s. 5,8 %</td><td>Russie 5,1 %</td></tr><tr><td>États-Unis 5,3 %</td><td>Allemagne, Brésil 4,3 %</td></tr></table><p class="so">L'Égypte achète aux grandes puissances, mais vend surtout à quelques voisins régionaux.</p><p>Ses exportations sont concentrées : or, combustibles, équipements électriques dont les câbles, fruits, engrais.</p>`, s: [TE] },
+  /* SLIDE 3 */
   fx: { t: "La livre face au dollar", h: `<p>Elle valait 8,9 livres pour 1 $ en 2015/16, et <b>50,0</b> en 2024/25.</p><p>Depuis l'abandon du change administré en 2016/17, la livre a connu plusieurs fortes chutes, notamment entre 2022 et 2024.</p>`, s: [EC + " (tableau 2)"] },
   fx17: { t: "2016/17 : la fin du change administré", h: `<p>La livre passe de 8,9 à <b>18,0</b> pour 1 $ en un an, et l'inflation bondit à 29,8 %.</p><p>C'est le premier grand choc, bien avant le Covid.</p>`, s: [EC + " (tableau 2)"] },
   fx24: { t: "Mars 2024 : une dévaluation d'environ 60 %", h: `<p>Pour mettre fin à la pénurie de devises, la livre est laissée libre de flotter.</p><p>Le même mois, le FMI porte son programme à 8 Md$.</p>`, s: [SP, EC] },
@@ -190,13 +276,39 @@ const D = {
   imf: { t: "Le FMI", h: `<p>En mars 2024, son programme est plus que doublé, à 8 Md$. En échange, l'Égypte s'engage sur un change flexible, la baisse des subventions et des privatisations, qui avancent lentement.</p><p>La dernière tranche est attendue en décembre 2026, et aucun nouveau programme n'est prévu.</p>`, s: [SP, FI] },
   gulf: { t: "Le Golfe, surtout les Émirats", h: `<p>Début 2024, Abu Dhabi s'engage à investir 35 Md$ dans le projet Ras El-Hekma. Les pays du Golfe ont aussi déposé environ 18 Md$ à la banque centrale.</p><p>Ils jouent le rôle de <b>prêteurs en dernier ressort</b> : ceux qui apportent l'argent quand plus personne ne prête. Leur motivation : une Égypte instable menacerait toute la région.</p>`, s: [SP] },
   end2026: { t: "Fin 2026 : le filet expire", h: `<p>Le programme du FMI s'achève, et les pays du Golfe ne se sont engagés à laisser leurs dépôts que jusqu'à cette date.</p><p class="so">Ensuite, l'Égypte devra garder la confiance des marchés par elle-même.</p>`, s: [SP, FI] },
+  /* SLIDE 4 */
+  debt: { t: "Une dette autour de 90 % du PIB", h: `<p>La dette publique oscille entre <b>83 % et 94 % du PIB</b> depuis 2020, avec un pic à 93,8 % en 2023.</p><p>En dollars, PIB et dette reculent après 2022 : c'est l'effet des dévaluations, qui réduisent la valeur en dollars de ce qui est libellé en livres.</p>`, s: [SP + " (tableau des indicateurs)"] },
+  dgdp: { t: "Dette / PIB", h: `<p>83,2 % en 2020, 93,8 % en 2023, <b>91,7 %</b> en 2025.</p><p>S&amp;P prévoit une baisse vers 80 % d'ici 2029, si la croissance et les excédents primaires se maintiennent.</p>`, s: [SP] },
+  r_mo: { t: "Moody's : Caa1, perspective positive", h: `<p>C'est la note la plus basse des trois agences : le risque de crédit y est jugé « très élevé ».</p><p>La perspective positive (avril 2026) signale qu'une amélioration est possible si les réformes se poursuivent.</p>`, s: [MO] },
+  r_sp: { t: "S&P : B, perspective stable", h: `<p>Note confirmée le 9 octobre 2026, soit 5 crans sous la catégorie « investissement » (BBB-).</p>`, s: [SP] },
+  r_fi: { t: "Fitch : B, perspective stable", h: `<p>Note confirmée le 8 octobre 2026.</p><p>Fitch souligne la charge d'intérêts, très supérieure à la médiane des pays notés B.</p>`, s: [FI] },
+  r_scale: { t: "Lire l'échelle", h: `<p>Au-dessus de la ligne pointillée (Baa3 / BBB-), la dette est dite « investissement ». En dessous, elle est « spéculative » : beaucoup d'investisseurs institutionnels n'ont pas le droit d'en détenir.</p><p>L'Égypte est 5 à 7 crans sous cette ligne.</p>`, s: [SP, FI, MO] },
+  d_ext: { t: "Du financement intérieur à l'extérieur", h: `<ul><li><b>2014-2017 :</b> l'État finance surtout ses déficits par des emprunts intérieurs, des bons du Trésor et des obligations achetés par les banques locales, à des taux relativement faibles.</li><li><b>Après la dévaluation de novembre 2016 et l'accord avec le FMI (12 Md$)</b>, il se tourne vers l'extérieur, porté par des taux mondiaux bas.</li></ul><p class="so">La dette extérieure passe d'environ 40-44 Md$ en 2014 à 162-168 Md$ en 2022-2023.</p>`, s: [MO, SP] },
+  d_opaque: { t: "Une dette sous-estimée ?", h: `<p>Le gouvernement ne publie pas de données complètes sur la dette intérieure : l'ampleur réelle de la dette publique est donc incertaine.</p><p>Les chiffres officiels n'incluent ni la dette des <b>entreprises publiques</b> et des autorités nationales, ni les <b>paiements différés et arriérés</b>.</p><p class="so">C'est une asymétrie d'information majeure pour les créanciers.</p>`, s: [MO] },
+  d_fx: { t: "32,1 % de la dette en devises", h: `<p>Près d'un tiers de la dette publique est libellée en devises (2025).</p><p class="so">À chaque dévaluation, son poids en livres augmente mécaniquement : c'est le lien direct entre risque de change et risque souverain.</p>`, s: [MO] },
+  d_mega: { t: "Des dépenses qui ne rapportent pas de devises", h: `<p>L'État a dépensé massivement dans des mégaprojets, comme la nouvelle capitale administrative, et dans l'immobilier et la construction.</p><p>Dans le même temps, entre 2010 et 2021, les sources de devises ont reculé :</p><ul><li>exportations : de 12 % à 7,1 % du PIB ;</li><li>IDE : de 3,3 % à 1,3 % ;</li><li>tourisme : de 4,8 % à 1,2 % ;</li><li>canal de Suez : de 2,2 % à 1,5 %.</li></ul>`, s: [MO] },
+  d_gulf: { t: "Le Golfe : des dépôts aux participations", h: `<p>Après le début du conflit au Moyen-Orient, Moody's estime les sorties de capitaux à 6-8 Md$, S&amp;P à 9,5 Md$.</p><p>Le soutien des pays du Golfe évolue : moins de dépôts à la banque centrale, plus de prises de participation et d'IDE réalisées en amont, comme Ras El-Hekma.</p>`, s: [SP, MO] },
+  /* SLIDE 5 */
+  xds: { t: "Un service de la dette extérieure qui explose", h: `<p>Le principal à rembourser passe d'environ 10 Md$ en 2019 à <b>30,2 Md$</b> en 2025, et les intérêts d'environ 3 à 8,5 Md$. Total 2025 : <b>38,7 Md$</b>.</p><p>L'encours de dette extérieure, lui, dépasse 150 Md$ depuis 2022.</p><p style="font-size:13px;color:var(--grey)">Montants arrondis, lus sur le graphique d'origine.</p>`, s: [MO, SP] },
+  ir: { t: "Intérêts / recettes : un record", h: `<p>Après un creux à 37,4 % en 2022, la part des recettes absorbée par les intérêts bondit à <b>62,6 %</b> en 2025.</p><p>Les intérêts atteignent 10,1 % du PIB, un record. Pour Moody's, c'est le ratio le plus faible de tous les pays qu'il note.</p><p class="so">Sur 3 livres de recettes, l'État en consacre près de 2 aux intérêts.</p>`, s: [SP, MO] },
+  peer: { t: "Le pire ratio de l'échantillon", h: `<p>Avec 62,6 %, l'Égypte devance largement le Pakistan (≈ 49 %) et le Sri Lanka (≈ 45 %), et représente plus du double de la médiane (25 %).</p><p style="font-size:13px;color:var(--grey)">Valeurs des autres pays arrondies, lues sur le graphique d'origine.</p>`, s: [MO] },
+  proj: { t: "Une baisse attendue, mais lente", h: `<p><b>S&amp;P :</b> pic à 68,5 % en 2026, puis 48,5 % en 2029.<br><b>Moody's :</b> 63,3 % en 2026, puis 61,2 % en 2027.</p><p>Ce qui explique la baisse :</p><ul><li>la baisse des taux d'intérêt ;</li><li>la hausse des recettes fiscales ;</li><li>le recul du poids de la dette, grâce à une croissance plus forte.</li></ul><p class="so">Même en 2029, le ratio resterait près de deux fois au-dessus de la médiane.</p>`, s: [SP, MO] },
+  /* SLIDE 6 */
+  std: { t: "Dette à court terme / réserves", h: `<p>Le seuil d'alerte habituel est de 50 %. L'Égypte le dépasse chaque année :</p><ul><li>avec l'or : 85,7 % → 58,8 % → 66,6 % ;</li><li>hors or : 112,1 % → 74,8 % → <b>94,1 %</b>.</li></ul><p class="so">En 2024/25, la dette à court terme atteint 31 Md$, soit 94 % des réserves hors or.</p>`, s: [MO, SP] },
+  cov: { t: "Réserves / importations", h: `<p>Avec l'or, les réserves couvrent 5 à 6 mois d'importations. Hors or, seulement <b>3,1 mois</b> sur les 12 mois à mars 2026, tout juste au-dessus du seuil de 3 mois.</p>`, s: [MO, SP] },
+  dse: { t: "Service de la dette / exportations", h: `<p>34,3 % en 2022/23, 52,4 % en 2023/24, <b>53,6 %</b> en 2024/25, soit plus du double du seuil d'alerte de 25 %.</p><p class="so">Plus de la moitié des recettes d'exportation partent dans le remboursement de la dette.</p>`, s: [MO, SP] },
+  l_short: { t: "Des réserves insuffisantes face au court terme", h: `<p>Le ratio dépasse 50 % chaque année. L'amélioration de 2023/24 vient surtout de la hausse des réserves (+11,4 Md$).</p><p>En 2024/25, la dette à court terme remonte à 31 Md$, soit 94 % des réserves hors or.</p>`, s: [MO, SP] },
+  l_gold: { t: "Une couverture soutenue par l'or", h: `<p>Les réserves couvrent 5,1 mois d'importations, mais seulement 3,6 hors or, et 3,1 sur les 12 mois à mars 2026.</p><p>Les importations ont bondi de 23 % en 2024/25 pendant que les réserves hors or reculaient.</p><p class="so">C'est l'or (de 13,6 à 19,2 Md$) qui comble l'écart, surtout grâce à la hausse de son prix.</p>`, s: [MO] },
+  l_princ: { t: "Le principal pèse 78 % du service de la dette", h: `<p>30,2 Md$ sur 38,7 Md$, en hausse de 64 % en deux ans, alors que les exportations stagnent autour de 72 Md$.</p><p class="so">Le ratio service de la dette / exportations passe de 34 % à 54 %.</p>`, s: [MO, SP] },
+  l_trade: { t: "Des devises qui ne viennent plus du commerce", h: `<p>Les recettes de Suez (de 8,8 à 3,6 Md$) et du pétrole (de 13,8 à 5,6 Md$) se sont effondrées.</p><p>Les transferts des expatriés (36,5 Md$) compensent en partie, mais même en les comptant, le ratio reste à 35 %, au-dessus du seuil de 25 %.</p>`, s: [MO, SP] },
 };
+/* ---------- infobulle ---------- */
 const slides = [...document.querySelectorAll(".slide")];
 slides.forEach((s) => { const p = document.createElement("div"); p.className = "pop"; s.appendChild(p);
   p.addEventListener("mouseenter", () => clearTimeout(hideT)); p.addEventListener("mouseleave", () => hideSoon()); });
 let hideT, curKey = null, curEl = null;
 const scale = () => slides[i].getBoundingClientRect().width / 1280;
-function place(pop, r) {
+function place(pop, r) { /* r = rectangle de l'élément en coordonnées de la slide */
   const W = r.w > 390 && r.w < 520 ? r.w : 390; pop.style.width = W + "px";
   let left = Math.min(Math.max(r.x, 14), 1280 - W - 14);
   const h = pop.offsetHeight, below = r.y + r.h + 6;
@@ -222,6 +334,7 @@ document.querySelectorAll(".hot").forEach((h) => {
   h.addEventListener("mouseenter", () => { if (curEl === h) clearTimeout(hideT); });
 });
 document.addEventListener("click", () => hide());
+/* ---------- graphiques ---------- */
 const RED = "#B83A25", ORA = "#E2762F", OCH = "#E9B949", BEI = "#EADBC3", INK = "#2E1F17", GR = "#EFE6D6", TIT = "#7A2E1E";
 Chart.register(ChartDataLabels);
 Chart.defaults.font.family = '"EB Garamond", Garamond, Georgia, serif';
@@ -233,7 +346,7 @@ const fr = (v) => v.toLocaleString("fr-FR", { minimumFractionDigits: 1, maximumF
 function interactive(keyOf) {
   return {
     onClick: (e, els, ch) => { e.native.stopPropagation(); if (!els.length) return hide();
-      const el = els[0], k = keyOf(el); const cr = rectOf(ch.canvas);
+      const el = els[0], k = keyOf(el); const cr = rectOf(ch.canvas), kk = ch.canvas.getBoundingClientRect().width / ch.width;
       const p = el.element, x = cr.x + p.x * (cr.w / ch.width), y = cr.y + p.y * (cr.h / ch.height);
       show(k, { x: x - 40, y: y + 10, w: 80, h: 12 }, null, true); ch.$cur = el.datasetIndex + ":" + el.index; },
     onHover: (e, els, ch) => { e.native.target.style.cursor = els.length ? "pointer" : "default";
@@ -247,6 +360,9 @@ const covid = { id: "covid", beforeDatasetsDraw(ch, a, o) { if (!o.at) return; c
   const st = (x.getPixelForValue(1) - x.getPixelForValue(0)) / 2, x0 = x.getPixelForValue(o.at) - st, x1 = x.getPixelForValue(o.at + 1) + st;
   const c = ch.ctx; c.save(); c.fillStyle = "rgba(234,219,195,.45)"; c.fillRect(x0, ca.top, x1 - x0, ca.bottom - ca.top);
   c.fillStyle = "#8A7B6E"; c.font = 'italic 13px "EB Garamond", Georgia, serif'; c.textAlign = "center"; c.fillText("Covid", (x0 + x1) / 2, ca.top + 12); c.restore(); } };
+const hline = { id: "hline", afterDatasetsDraw(ch, a, o) { if (o.y == null) return; const y = ch.scales.y.getPixelForValue(o.y), ca = ch.chartArea, c = ch.ctx;
+  c.save(); c.strokeStyle = "#B83A25"; c.setLineDash([6, 5]); c.lineWidth = 1.6; c.beginPath(); c.moveTo(ca.left, y); c.lineTo(ca.right, y); c.stroke();
+  c.setLineDash([]); c.font = 'italic 600 13.5px "EB Garamond", Georgia, serif'; const w = c.measureText(o.label).width; const lx = o.left ? ca.left : ca.right - w; c.fillStyle = "rgba(255,253,248,.92)"; c.fillRect(lx - 3, y + 3, w + 6, 16); c.fillStyle = "#B83A25"; c.textAlign = "left"; c.fillText(o.label, lx, y + 15); c.restore(); } };
 const charts = {
   c_demand: () => ({ type: "line", plugins: [covid],
     data: { labels: Y1, datasets: [
@@ -288,9 +404,73 @@ const charts = {
     options: { ...interactive((el) => el.datasetIndex ? "infl" : (el.index === 1 ? "fx17" : el.index >= 8 ? "fx24" : "fx")), layout: { padding: { top: 22, right: 8 } },
       plugins: { legend: { ...legendBottom, labels: { ...legendBottom.labels, generateLabels: () => [{ text: "Livres pour 1 $", fillStyle: OCH, strokeStyle: OCH }, { text: "Inflation (%)", fillStyle: INK, strokeStyle: INK }] } }, covid: { at: 4 } },
       scales: { y: { display: false, min: 0, max: 56 }, x: { grid: { display: false } } } } }),
+  c_debt: () => ({ plugins: [],
+    data: { labels: ["2020","2021","2022","2023","2024","2025"], datasets: [
+      { type: "bar", label: "PIB nominal", data: [383.9,424.7,476.9,394.4,383.7,364.9], backgroundColor: OCH, borderRadius: 3, barPercentage: .82, categoryPercentage: .7, yAxisID: "y", order: 2 },
+      { type: "bar", label: "Dette publique", data: [319.4,372.0,412.5,369.9,341.9,334.6], backgroundColor: RED, borderRadius: 3, barPercentage: .82, categoryPercentage: .7, yAxisID: "y", order: 2 },
+      { type: "line", label: "Dette / PIB (axe droit)", data: [83.2,87.6,86.5,93.8,89.1,91.7], borderColor: INK, backgroundColor: INK, borderWidth: 3, tension: .35, pointRadius: 4.5, pointHoverRadius: 7, yAxisID: "y2", order: 1,
+        datalabels: { display: true, align: "top", offset: 6, color: INK, backgroundColor: "rgba(255,253,248,.9)", borderRadius: 3, font: { size: 14.5, weight: 600, style: "italic" }, formatter: (v) => fr(v) + " %" } }] },
+    options: { ...interactive((el) => el.datasetIndex === 2 ? "dgdp" : "debt"), layout: { padding: { top: 6 } },
+      plugins: { legend: legendBottom },
+      scales: { y: { min: 0, max: 600, ticks: { stepSize: 100 }, grid: { color: GR } }, y2: { position: "right", min: 60, max: 100, ticks: { callback: (v) => v + " %", stepSize: 10 }, grid: { display: false } }, x: { grid: { display: false } } } } }),
+  c_xds: () => ({
+    data: { labels: ["2019","2020","2021","2022","2023","2024","2025"], datasets: [
+      { type: "bar", label: "Intérêts", data: [3.1,4.0,4.0,4.5,6.7,9.1,8.5], backgroundColor: ORA, borderRadius: 2, stack: "s", yAxisID: "y", order: 2 },
+      { type: "bar", label: "Principal", data: [10.2,13.1,11.5,21.5,18.4,23.6,30.2], backgroundColor: RED, borderRadius: 2, stack: "s", yAxisID: "y", order: 2,
+        datalabels: { display: (c) => c.dataIndex === 6, anchor: "end", align: "start", offset: 6, color: "#fff", font: { size: 15, weight: 700 }, formatter: () => "38,7" } },
+      { type: "line", label: "Encours de dette extérieure (axe droit)", data: [110,123,137,155,165,153,161], borderColor: INK, backgroundColor: INK, borderWidth: 2.5, tension: .35, pointRadius: 3, pointHoverRadius: 6, yAxisID: "y2", order: 1 }] },
+    options: { ...interactive(() => "xds"), layout: { padding: { top: 14 } },
+      plugins: { legend: { ...legendBottom, labels: { ...legendBottom.labels, font: { size: 13.5 } } } },
+      scales: { y: { stacked: true, min: 0, max: 50, ticks: { stepSize: 10 }, grid: { color: GR } }, y2: { position: "right", min: 0, max: 180, ticks: { stepSize: 60 }, grid: { display: false } }, x: { stacked: true, grid: { display: false } } } } }),
+  c_ir: () => ({ type: "line",
+    data: { labels: ["2020","2021","2022","2023","2024","2025"], datasets: [{ data: [48.4,43.8,37.4,42.0,46.9,62.6], borderColor: RED, backgroundColor: "rgba(184,58,37,.12)", fill: true, borderWidth: 3, tension: .35, pointRadius: 4.5, pointHoverRadius: 7,
+      datalabels: { display: true, align: "top", offset: 4, color: (c) => c.dataIndex === 5 ? RED : TIT, font: (c) => ({ size: c.dataIndex === 5 ? 16 : 14, weight: c.dataIndex === 5 ? 700 : 600 }), formatter: (v) => fr(v) + " %" } }] },
+    options: { ...interactive(() => "ir"), layout: { padding: { top: 22, right: 34, left: 6 } },
+      scales: { y: { min: 30, max: 70, ticks: { stepSize: 10, callback: (v) => v + " %" }, grid: { color: GR } }, x: { grid: { display: false } } } } }),
+  c_peer: () => ({ type: "bar", plugins: [hline],
+    data: { labels: ["Égypte","Pakistan","Sri Lanka","Bahreïn","Kenya","Sharjah","Bangladesh","Zambie","Ouganda","Angola","Nigeria","Inde","Sénégal","Ghana","Rép. dom.","Laos","Brésil","Bahamas","Afr. du Sud","Panama"],
+      datasets: [{ data: [62.6,49,45,34,33,29,29,26,25,25,24,22,22,21.5,21,20,20,19,19,17.5], backgroundColor: (c) => c.dataIndex === 0 ? RED : OCH, borderRadius: 2, barPercentage: .7,
+        datalabels: { display: (c) => c.dataIndex === 0, anchor: "end", align: "top", color: RED, font: { size: 14, weight: 700 }, formatter: (v) => fr(v) + " %" } }] },
+    options: { ...interactive(() => "peer"), layout: { padding: { top: 18 } },
+      plugins: { hline: { y: 25, label: "médiane : 25 %" } },
+      scales: { y: { min: 0, max: 70, ticks: { stepSize: 20, callback: (v) => v + " %" }, grid: { color: GR } }, x: { grid: { display: false }, ticks: { font: { size: 11.5 }, maxRotation: 55, minRotation: 55, autoSkip: false } } } } }),
+  c_proj: () => ({ type: "line",
+    data: { labels: ["2025","2026p","2027p","2028p","2029p"], datasets: [
+      { label: "S&P", data: [62.6,68.5,59.7,52.9,48.5], borderColor: RED, backgroundColor: RED, borderWidth: 3, tension: .35, pointRadius: 4.5, pointHoverRadius: 7,
+        datalabels: { display: true, align: "top", offset: 4, color: RED, font: { size: 14, weight: 600 }, formatter: (v) => fr(v) + " %" } },
+      { label: "Moody's", data: [62.6,63.3,61.2,null,null], borderColor: INK, backgroundColor: INK, borderWidth: 3, tension: .35, pointRadius: 4.5, pointHoverRadius: 7,
+        datalabels: { display: (c) => c.dataIndex > 0, align: "bottom", offset: 4, color: INK, font: { size: 14, weight: 600 }, formatter: (v) => v == null ? "" : fr(v) + " %" } }] },
+    options: { ...interactive(() => "proj"), layout: { padding: { top: 22, right: 20, left: 10 } },
+      plugins: { legend: legendBottom },
+      scales: { y: { min: 40, max: 75, ticks: { stepSize: 10, callback: (v) => v + " %" }, grid: { color: GR } }, x: { grid: { display: false } } } } }),
+  c_std: () => ({ type: "line", plugins: [hline],
+    data: { labels: ["2022/23","2023/24","2024/25"], datasets: [
+      { label: "Hors or", data: [112.1,74.8,94.1], borderColor: RED, backgroundColor: RED, borderWidth: 3, pointRadius: 5, pointHoverRadius: 8,
+        datalabels: { display: true, align: "top", offset: 5, color: RED, font: { size: 15, weight: 700 }, formatter: (v) => fr(v) + " %" } },
+      { label: "Avec l'or", data: [85.7,58.8,66.6], borderColor: OCH, backgroundColor: OCH, borderWidth: 3, pointRadius: 5, pointHoverRadius: 8,
+        datalabels: { display: true, align: "bottom", offset: 5, color: "#B98A1C", font: { size: 15, weight: 600 }, formatter: (v) => fr(v) + " %" } }] },
+    options: { ...interactive(() => "std"), layout: { padding: { top: 24, left: 26, right: 26 } },
+      plugins: { legend: legendBottom, hline: { y: 50, label: "seuil d'alerte : 50 %" } },
+      scales: { y: { display: false, min: 30, max: 125 }, x: { grid: { display: false } } } } }),
+  c_cov: () => ({ type: "bar", plugins: [hline],
+    data: { labels: ["2022/23","2023/24","2024/25","LTM mars 26"], datasets: [
+      { label: "Avec l'or", data: [4.7,6.0,5.1,5.0], backgroundColor: OCH, borderRadius: 3, barPercentage: .85, categoryPercentage: .72 },
+      { label: "Hors or", data: [3.6,4.7,3.6,3.1], backgroundColor: RED, borderRadius: 3, barPercentage: .85, categoryPercentage: .72 }] },
+    options: { ...interactive(() => "cov"), layout: { padding: { top: 22 } },
+      plugins: { legend: legendBottom, hline: { y: 3, label: "seuil : 3 mois", left: true },
+        datalabels: { display: true, anchor: "end", align: "top", color: (c) => c.datasetIndex ? RED : TIT, font: { size: 14.5, weight: 600 }, formatter: (v) => fr(v) } },
+      scales: { y: { display: false, min: 0, max: 7 }, x: { grid: { display: false }, ticks: { font: { size: 13.5 } } } } } }),
+  c_dse: () => ({ type: "line", plugins: [hline],
+    data: { labels: ["2022/23","2023/24","2024/25"], datasets: [
+      { data: [34.3,52.4,53.6], borderColor: RED, backgroundColor: "rgba(184,58,37,.12)", fill: true, borderWidth: 3, pointRadius: 5, pointHoverRadius: 8,
+        datalabels: { display: true, align: "top", offset: 5, color: RED, font: { size: 15, weight: 700 }, formatter: (v) => fr(v) + " %" } }] },
+    options: { ...interactive(() => "dse"), layout: { padding: { top: 24, left: 26, right: 26 } },
+      plugins: { hline: { y: 25, label: "seuil d'alerte : 25 %" } },
+      scales: { y: { display: false, min: 0, max: 65 }, x: { grid: { display: false } } } } }),
 };
 const made = {};
 function draw(s) { s.querySelectorAll("canvas").forEach((cv) => { if (!made[cv.id]) made[cv.id] = new Chart(cv, charts[cv.id]()); }); }
+/* ---------- navigation ---------- */
 let i = 0;
 function fit() { const k = Math.min(innerWidth / 1280, innerHeight / 720) * 0.96; slides.forEach((s) => (s.style.transform = `scale(${k})`)); }
 function go(n) { hide(); i = Math.max(0, Math.min(slides.length - 1, n));
